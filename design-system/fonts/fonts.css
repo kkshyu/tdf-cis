@@ -1,0 +1,4 @@
+/* Package-local webfonts. Artifacts normally load Jersey 10 / Space Grotesk / Noto Sans TC
+ * from Google Fonts; Cubic 11 (OFL) ships here because it is not on Google Fonts. */
+@font-face { font-family: "Jersey 10"; src: url("jersey10-latin.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122; }
+@font-face { font-family: "Cubic 11"; src: url("cubic-11.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }

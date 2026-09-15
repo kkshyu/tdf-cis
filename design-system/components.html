@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDF 2027 - reference components</title>
+    <meta name="description" content="Reference fixture for design-systems/tdf-2027: Mondrian black grid, pixel headings, 12 fixed swatches, hard edges, one dominant color per screen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <style>
+      :root {
+        --bg: #FFFFFF;
+        --surface: #F6F6F6;
+        --surface-warm: #F9D2E5;
+        --fg: #1E1F1C;
+        --fg-2: #000000;
+        --muted: color-mix(in oklab, #1E1F1C, white 28%);
+        --meta: var(--muted);
+        --border: #000000;
+        --border-soft: color-mix(in oklab, #000000, transparent 85%);
+        --accent: #FFD028;
+        --accent-on: #000000;
+        --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+        --accent-active: color-mix(in oklab, var(--accent), black 14%);
+        --success: #00993E;
+        --warn: #E74310;
+        --danger: #E4003D;
+        --font-display: "Jersey 10", "Space Grotesk", sans-serif;
+        --font-body: "Space Grotesk", "Noto Sans TC", sans-serif;
+        --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+        --text-xs: 14px;
+        --text-sm: 14px;
+        --text-base: 16px;
+        --text-lg: 18px;
+        --text-xl: 28px;
+        --text-2xl: 44px;
+        --text-3xl: 64px;
+        --text-4xl: 120px;
+        --leading-body: 1.55;
+        --leading-tight: 0.9;
+        --tracking-display: 0.02em;
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+        --space-6: 24px;
+        --space-8: 32px;
+        --space-12: 48px;
+        --section-y-desktop: 96px;
+        --section-y-tablet: 64px;
+        --section-y-phone: 48px;
+        --radius-sm: 0px;
+        --radius-md: 0px;
+        --radius-lg: 0px;
+        --radius-pill: 0px;
+        --elev-flat: none;
+        --elev-ring: 0 0 0 1px var(--border);
+        --elev-raised: 0 0 0 3px var(--border);
+        --focus-ring: 0 0 0 3px var(--bg), 0 0 0 6px var(--fg-2);
+        --motion-fast: 180ms;
+        --motion-base: 220ms;
+        --ease-standard: cubic-bezier(0, 0, 0.2, 1);
+        --container-max: 1440px;
+        --container-gutter-desktop: 32px;
+        --container-gutter-tablet: 24px;
+        --container-gutter-phone: 20px;
+        --tdf-yellow: #FFD028;
+        --tdf-cyan: #10B8D9;
+        --tdf-orange: #E74310;
+        --tdf-pink: #F9D2E5;
+        --tdf-green: #00993E;
+        --tdf-magenta: #E4003D;
+        --tdf-purple: #C54090;
+        --tdf-blue: #004E9D;
+        --tdf-gray-50: #F6F6F6;
+        --tdf-ink: #1E1F1C;
+        --tdf-white: #FFFFFF;
+        --tdf-black: #000000;
+        --tdf-font-display-zh: "Cubic 11", "Noto Sans TC", sans-serif;
+        --tdf-leading-display-zh: 1.45;
+        --tdf-tracking-display-zh: 0.08em;
+        --tdf-tracking-eyebrow: 0.2em;
+        --tdf-line: 5px;
+        --tdf-line-mobile: 3px;
+        --tdf-module: 8px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body { min-height: 100vh; background: var(--surface); color: var(--fg); font-family: var(--font-body); font-size: var(--text-base); line-height: var(--leading-body); -webkit-font-smoothing: antialiased; }
+      img { display: block; max-width: 100%; }
+      h1, h2, h3, p, ul { margin: 0; }
+      .page { max-width: var(--container-max); margin-inline: auto; background: var(--bg); border-inline: var(--tdf-line) solid var(--border); }
+      .container { padding-inline: var(--container-gutter-desktop); }
+      section { padding-block: var(--section-y-desktop); border-bottom: var(--tdf-line) solid var(--border); }
+      @media (max-width: 1023px) { .container { padding-inline: var(--container-gutter-tablet); } section { padding-block: var(--section-y-tablet); } }
+      @media (max-width: 639px) { :root { --tdf-line: var(--tdf-line-mobile); } .container { padding-inline: var(--container-gutter-phone); } section { padding-block: var(--section-y-phone); } .page { border-inline: 0; } }
+
+      /* type */
+      h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: var(--leading-tight); letter-spacing: var(--tracking-display); text-transform: uppercase; color: var(--fg-2); }
+      h1 { font-size: var(--text-4xl); }
+      h2 { font-size: var(--text-2xl); }
+      h3 { font-size: var(--text-xl); }
+      .zh-heading { font-family: var(--tdf-font-display-zh); font-weight: 700; line-height: var(--tdf-leading-display-zh); letter-spacing: var(--tdf-tracking-display-zh); text-transform: none; }
+      .eyebrow { color: var(--fg-2); font-size: var(--text-sm); font-weight: 700; letter-spacing: var(--tdf-tracking-eyebrow); text-transform: uppercase; }
+      .lead { font-size: var(--text-lg); color: var(--fg); max-width: 60ch; }
+      .caption { font-size: var(--text-sm); color: var(--muted); }
+      .stack > * + * { margin-block-start: var(--space-4); }
+
+      /* nav */
+      .nav { position: sticky; top: 0; z-index: 2; display: flex; align-items: stretch; justify-content: space-between; min-height: 60px; background: var(--bg); border-bottom: var(--tdf-line) solid var(--border); }
+      .nav-brand { display: inline-flex; align-items: center; gap: var(--space-3); padding: 0 var(--space-5); border-right: var(--tdf-line) solid var(--border); color: var(--fg-2); font-weight: 700; text-decoration: none; }
+      .nav-brand img { width: 32px; height: 32px; }
+      .nav-brand b { background: var(--accent); color: var(--accent-on); border: 3px solid var(--border); padding: 0 var(--space-2); line-height: 1.2; }
+      .nav-links { display: flex; }
+      .nav-links a { display: inline-flex; align-items: center; padding: 0 var(--space-4); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-2); text-decoration: none; border-left: 1px solid var(--border-soft); transition: background-color var(--motion-fast) var(--ease-standard); }
+      .nav-links a:hover { background: var(--surface); }
+      .nav-links a[aria-current="page"] { background: var(--accent); color: var(--accent-on); }
+      .nav-links a:focus-visible { outline: none; box-shadow: inset 0 0 0 3px var(--fg-2); }
+
+      /* buttons */
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+      .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-6); border: 3px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--fg-2); font: 700 var(--text-base) / 1 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+      .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+      .btn:active { transform: translate(2px, 2px); }
+      .btn-primary { background: var(--accent); color: var(--accent-on); }
+      .btn-primary:hover { background: var(--fg-2); color: var(--bg); }
+      .btn-secondary:hover { background: var(--surface); color: var(--fg-2); }
+      .link { color: var(--fg-2); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+      .link:hover { text-decoration-color: var(--accent); }
+      .link:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+      /* mondrian hero */
+      .hero { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--tdf-line); background: var(--border); border-block: var(--tdf-line) solid var(--border); }
+      .hero-main { background: var(--accent); color: var(--accent-on); padding: var(--space-12) var(--container-gutter-desktop) var(--space-8); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-8); min-height: 560px; }
+      .hero-main h1 { display: flex; flex-direction: column; font-size: clamp(72px, 11vw, var(--text-4xl)); line-height: 0.8; }
+      .hero-side { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: var(--tdf-line); }
+      .hero-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); padding: var(--space-6); text-align: center; }
+      .hero-cell img { width: 120px; height: 120px; }
+      .hero-cell .year { font-family: var(--font-display); font-size: 104px; line-height: 0.8; }
+      .cell-pink { background: var(--surface-warm); color: var(--fg-2); }
+      .cell-magenta { background: var(--tdf-magenta); color: var(--bg); }
+      .cell-blue { background: var(--tdf-blue); color: var(--bg); }
+      .places { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--tdf-line); background: var(--border); border-bottom: var(--tdf-line) solid var(--border); }
+      .place { min-height: 128px; display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-3); padding: var(--space-6) var(--container-gutter-desktop); }
+      .place b { font-family: var(--font-display); font-weight: 400; font-size: 34px; line-height: 1; text-transform: uppercase; }
+      .place span { font-size: var(--text-sm); font-weight: 700; text-align: right; }
+      .place-blue { background: var(--tdf-blue); color: var(--bg); }
+      .place-cyan { background: var(--tdf-cyan); color: var(--fg-2); }
+      .place-green { background: var(--tdf-green); color: var(--fg-2); }
+
+      /* cards */
+      .grid { display: grid; gap: var(--tdf-line); background: var(--border); border: var(--tdf-line) solid var(--border); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: 1.1fr 0.9fr; }
+      .cell { background: var(--bg); padding: var(--space-6); min-width: 0; }
+      .event { display: grid; grid-template-columns: 96px 1fr; gap: 0; padding: 0; }
+      .event-date { background: var(--tdf-blue); color: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-4); border-right: var(--tdf-line) solid var(--border); }
+      .event-date b { font-family: var(--font-display); font-weight: 400; font-size: 56px; line-height: 0.8; }
+      .event-date span { font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+      .event-body { padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); }
+      .meta-row { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); font-size: var(--text-sm); color: var(--muted); }
+      .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+      .tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 var(--space-3); border: 2px solid var(--border); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .tag-yellow { background: var(--tdf-yellow); color: var(--fg-2); }
+      .tag-cyan { background: var(--tdf-cyan); color: var(--fg-2); }
+      .tag-pink { background: var(--tdf-pink); color: var(--fg-2); }
+      .tag-magenta { background: var(--tdf-magenta); color: var(--bg); }
+      .status { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+      .status::before { content: ""; width: 12px; height: 12px; border: 2px solid var(--border); background: var(--success); }
+      .status-warn::before { background: var(--warn); }
+      .status-danger::before { background: var(--danger); }
+
+      /* form */
+      .field { display: grid; gap: var(--space-2); }
+      label { font-size: var(--text-sm); font-weight: 700; color: var(--fg-2); }
+      input, select, textarea { width: 100%; min-height: 46px; padding: 0 var(--space-4); border: 3px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--fg); font: inherit; }
+      textarea { min-height: 120px; padding-block: var(--space-3); }
+      input:focus, select:focus, textarea:focus { outline: none; box-shadow: var(--focus-ring); border-bottom-color: var(--accent); }
+      .field-error input { border-color: var(--danger); }
+      .error { font-size: var(--text-sm); font-weight: 700; color: var(--danger); }
+      .hint { font-size: var(--text-sm); color: var(--muted); }
+      .form-grid { display: grid; gap: var(--space-5); }
+
+      /* table */
+      table { width: 100%; border-collapse: collapse; font-size: var(--text-base); }
+      th, td { text-align: left; padding: var(--space-3) var(--space-2); border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+      thead th { background: var(--surface); color: var(--fg-2); font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 3px solid var(--border); }
+      td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+
+      /* footer */
+      .footer { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; padding: var(--space-8) var(--container-gutter-desktop); background: var(--fg); color: var(--bg); }
+      .footer h2 { color: var(--bg); }
+      .footer p { font-size: var(--text-sm); }
+      .endorse { display: inline-flex; align-items: center; gap: var(--space-4); font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+      .endorse img { height: 40px; width: auto; background: var(--bg); padding: var(--space-1); }
+
+      @media (max-width: 860px) {
+        .hero, .grid-3, .grid-2, .places, .footer { grid-template-columns: 1fr; }
+        .hero-side { grid-template-rows: auto; grid-template-columns: repeat(3, 1fr); }
+        .hero-cell img { width: 64px; height: 64px; } .hero-cell .year { font-size: 56px; }
+        .hero-main { min-height: 420px; }
+      }
+      @media (prefers-reduced-motion: reduce) { .btn, .nav-links a { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav" aria-label="Site">
+        <a class="nav-brand" href="#"><img src="assets/favicon.svg" alt="" /><b>TDF</b> 2027</a>
+        <div class="nav-links"><a href="#" aria-current="page">Program</a><a href="#">Places</a><a href="#">Tickets</a><a href="#">Stay</a></div>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-main">
+          <p class="eyebrow">East Taiwan · Three host areas</p>
+          <h1><span>Taiwan</span><span>Digital</span><span>Fest</span></h1>
+          <div class="stack">
+            <p class="lead">Where digital nomads meet nature &amp; innovation.<br /><span class="caption" style="color: var(--fg-2)">數位遊牧者，相遇於山海與創新。</span></p>
+            <div class="actions" aria-label="Hero actions"><a class="btn btn-primary" href="#">Buy tickets</a><a class="btn btn-secondary" href="#">Explore program</a><a class="link" href="#">Apply as speaker</a></div>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="hero-cell cell-pink"><img src="assets/favicon.svg" alt="TDF mark" /><span class="eyebrow">Official mark</span></div>
+          <div class="hero-cell cell-magenta"><span class="year">2027</span><span class="eyebrow" style="color: inherit">Apr 19 — May 31</span></div>
+          <div class="hero-cell cell-blue"><span class="eyebrow" style="color: inherit">Hosted by</span><strong style="font-size: 36px; letter-spacing: 0.06em">TDNA</strong></div>
+        </div>
+      </header>
+      <div class="places" aria-label="Host areas">
+        <div class="place place-blue"><b>Hualien</b><span>花蓮 · Apr 19 – 30</span></div>
+        <div class="place place-cyan"><b>Taitung</b><span>台東 · May 1 – 28</span></div>
+        <div class="place place-green"><b>Green Island</b><span>綠島 · May 29 – 31</span></div>
+      </div>
+
+      <section>
+        <div class="container stack">
+          <p class="eyebrow">Program</p>
+          <h2>This week in Taitung</h2>
+          <p class="zh-heading" style="font-size: var(--text-xl)">本週台東活動</p>
+          <div class="grid grid-3" style="margin-block-start: var(--space-6)">
+            <article class="cell event">
+              <div class="event-date"><b>04</b><span>May</span></div>
+              <div class="event-body"><div class="tags"><span class="tag tag-cyan">Workshop</span><span class="tag tag-pink">Free</span></div><h3>AI tools for solo founders</h3><div class="meta-row"><span>14:00 – 16:30</span><span>Taitung co-working hub</span></div><span class="status">25 seats left</span><div class="actions"><a class="btn btn-secondary" href="#">Join</a></div></div>
+            </article>
+            <article class="cell event">
+              <div class="event-date"><b>06</b><span>May</span></div>
+              <div class="event-body"><div class="tags"><span class="tag tag-yellow">Community</span></div><h3>Jazz night by the harbor</h3><div class="meta-row"><span>19:30</span><span>Fugang</span></div><span class="status status-warn">Almost full</span><div class="actions"><a class="btn btn-secondary" href="#">Join</a></div></div>
+            </article>
+            <article class="cell event">
+              <div class="event-date"><b>09</b><span>May</span></div>
+              <div class="event-body"><div class="tags"><span class="tag tag-magenta">Paid</span></div><h3>Ocean tour &amp; surf intro</h3><div class="meta-row"><span>08:00</span><span>Dulan</span><span>NT$1,200</span></div><span class="status status-danger">Sold out</span><div class="actions"><a class="link" href="#">Join waitlist</a></div></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-2">
+          <article class="cell">
+            <p class="eyebrow">Form</p>
+            <h3 style="margin-block: var(--space-3) var(--space-5)">Apply for a stay</h3>
+            <form class="form-grid">
+              <div class="field"><label for="tdf-name">Full name</label><input id="tdf-name" value="Mei-Ling Chen" /></div>
+              <div class="field"><label for="tdf-place">Preferred place</label><select id="tdf-place"><option>Hualien · Apr 19 – 30</option><option selected>Taitung · May 1 – 28</option><option>Green Island · May 29 – 31</option></select></div>
+              <div class="field field-error"><label for="tdf-email">Email</label><input id="tdf-email" value="mei@example" aria-describedby="tdf-email-err" /><span id="tdf-email-err" class="error">Enter a full email address, e.g. mei@example.com</span></div>
+              <div class="field"><label for="tdf-note">Anything we should know</label><textarea id="tdf-note">Arriving from Fukuoka on Apr 30.</textarea><span class="hint">Optional · 選填</span></div>
+              <div class="actions"><button type="button" class="btn btn-primary">Apply</button><a class="link" href="#">Save draft</a></div>
+            </form>
+          </article>
+          <article class="cell" style="background: var(--surface)">
+            <p class="eyebrow">Table</p>
+            <h3 style="margin-block: var(--space-3) var(--space-5)">Ticket types</h3>
+            <table>
+              <thead><tr><th>Pass</th><th>Covers</th><th style="text-align: right">NT$</th></tr></thead>
+              <tbody>
+                <tr><td>Hualien week</td><td>Apr 19 – 30 · co-working + 6 events</td><td class="num">3,200</td></tr>
+                <tr><td>Taitung month</td><td>May 1 – 28 · co-working + all events</td><td class="num">6,800</td></tr>
+                <tr><td>Green Island finale</td><td>May 29 – 31 · boat + stay</td><td class="num">4,500</td></tr>
+                <tr><td>Full festival</td><td>43 days · everything</td><td class="num">12,000</td></tr>
+              </tbody>
+            </table>
+            <p class="caption" style="margin-block-start: var(--space-4)">Prices are placeholders for the fixture; confirm with the 2027 ticketing sheet.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div><h2>TDF 2027</h2><p>Hualien · Taitung · Green Island · Apr 19 — May 31, 2027</p></div>
+        <span class="endorse"><img src="assets/tdna-logo.png" alt="TDNA logo" /> Hosted by TDNA</span>
+      </footer>
+    </main>
+  </body>
+</html>

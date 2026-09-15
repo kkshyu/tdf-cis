@@ -1,0 +1,666 @@
+{
+  "schemaVersion": 1,
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-09-13T01:48:28.780Z",
+  "summary": {
+    "totalTokens": 56,
+    "declaredTokens": 56,
+    "sourceBackedTokens": 56,
+    "sourceBackedA1": 26,
+    "requiredA1": 26,
+    "fallbackTokens": 0,
+    "aliasTokens": 0,
+    "score": 100,
+    "grade": "excellent",
+    "recommendRebuild": false
+  },
+  "layers": {
+    "A1-identity": {
+      "total": 8,
+      "sourceBacked": 8,
+      "fallback": 0,
+      "alias": 0
+    },
+    "A1-structure": {
+      "total": 18,
+      "sourceBacked": 18,
+      "fallback": 0,
+      "alias": 0
+    },
+    "A2": {
+      "total": 26,
+      "sourceBacked": 26,
+      "fallback": 0,
+      "alias": 0
+    },
+    "B-slot": {
+      "total": 4,
+      "sourceBacked": 4,
+      "fallback": 0,
+      "alias": 0
+    }
+  },
+  "selfCheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": []
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "layer": "A1-identity",
+      "value": "#FFFFFF",
+      "confidence": "high",
+      "reason": "Exact source token --bg matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:9"
+      ],
+      "sourceName": "--bg"
+    },
+    {
+      "name": "--surface",
+      "layer": "A1-identity",
+      "value": "#F6F6F6",
+      "confidence": "high",
+      "reason": "Exact source token --surface matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:10"
+      ],
+      "sourceName": "--surface"
+    },
+    {
+      "name": "--surface-warm",
+      "layer": "B-slot",
+      "value": "#F9D2E5",
+      "confidence": "high",
+      "reason": "Exact source token --surface-warm matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:11"
+      ],
+      "sourceName": "--surface-warm"
+    },
+    {
+      "name": "--fg",
+      "layer": "A1-identity",
+      "value": "#1E1F1C",
+      "confidence": "high",
+      "reason": "Exact source token --fg matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:14"
+      ],
+      "sourceName": "--fg"
+    },
+    {
+      "name": "--fg-2",
+      "layer": "B-slot",
+      "value": "#000000",
+      "confidence": "high",
+      "reason": "Exact source token --fg-2 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:15"
+      ],
+      "sourceName": "--fg-2"
+    },
+    {
+      "name": "--muted",
+      "layer": "A1-identity",
+      "value": "color-mix(in oklab, #1E1F1C, white 28%)",
+      "confidence": "high",
+      "reason": "Exact source token --muted matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:16"
+      ],
+      "sourceName": "--muted"
+    },
+    {
+      "name": "--meta",
+      "layer": "B-slot",
+      "value": "var(--muted)",
+      "confidence": "high",
+      "reason": "Exact source token --meta matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:17"
+      ],
+      "sourceName": "--meta"
+    },
+    {
+      "name": "--border",
+      "layer": "A1-identity",
+      "value": "#000000",
+      "confidence": "high",
+      "reason": "Exact source token --border matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:20"
+      ],
+      "sourceName": "--border"
+    },
+    {
+      "name": "--border-soft",
+      "layer": "B-slot",
+      "value": "color-mix(in oklab, #000000, transparent 85%)",
+      "confidence": "high",
+      "reason": "Exact source token --border-soft matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:21"
+      ],
+      "sourceName": "--border-soft"
+    },
+    {
+      "name": "--accent",
+      "layer": "A1-identity",
+      "value": "#FFD028",
+      "confidence": "high",
+      "reason": "Exact source token --accent matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:24"
+      ],
+      "sourceName": "--accent"
+    },
+    {
+      "name": "--accent-on",
+      "layer": "A2",
+      "value": "#000000",
+      "confidence": "high",
+      "reason": "Exact source token --accent-on matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:25"
+      ],
+      "sourceName": "--accent-on"
+    },
+    {
+      "name": "--accent-hover",
+      "layer": "A2",
+      "value": "color-mix(in oklab, var(--accent), black 8%)",
+      "confidence": "high",
+      "reason": "Exact source token --accent-hover matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:26"
+      ],
+      "sourceName": "--accent-hover"
+    },
+    {
+      "name": "--accent-active",
+      "layer": "A2",
+      "value": "color-mix(in oklab, var(--accent), black 14%)",
+      "confidence": "high",
+      "reason": "Exact source token --accent-active matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:27"
+      ],
+      "sourceName": "--accent-active"
+    },
+    {
+      "name": "--success",
+      "layer": "A2",
+      "value": "#00993E",
+      "confidence": "high",
+      "reason": "Exact source token --success matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:30"
+      ],
+      "sourceName": "--success"
+    },
+    {
+      "name": "--warn",
+      "layer": "A2",
+      "value": "#E74310",
+      "confidence": "high",
+      "reason": "Exact source token --warn matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:31"
+      ],
+      "sourceName": "--warn"
+    },
+    {
+      "name": "--danger",
+      "layer": "A2",
+      "value": "#E4003D",
+      "confidence": "high",
+      "reason": "Exact source token --danger matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:32"
+      ],
+      "sourceName": "--danger"
+    },
+    {
+      "name": "--font-display",
+      "layer": "A1-identity",
+      "value": "\"Jersey 10\", \"Space Grotesk\", sans-serif",
+      "confidence": "high",
+      "reason": "Exact source token --font-display matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:35"
+      ],
+      "sourceName": "--font-display"
+    },
+    {
+      "name": "--font-body",
+      "layer": "A1-identity",
+      "value": "\"Space Grotesk\", \"Noto Sans TC\", sans-serif",
+      "confidence": "high",
+      "reason": "Exact source token --font-body matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:36"
+      ],
+      "sourceName": "--font-body"
+    },
+    {
+      "name": "--font-mono",
+      "layer": "A2",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "confidence": "high",
+      "reason": "Exact source token --font-mono matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:37"
+      ],
+      "sourceName": "--font-mono"
+    },
+    {
+      "name": "--text-xs",
+      "layer": "A1-structure",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "Exact source token --text-xs matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:40"
+      ],
+      "sourceName": "--text-xs"
+    },
+    {
+      "name": "--text-sm",
+      "layer": "A1-structure",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "Exact source token --text-sm matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:41"
+      ],
+      "sourceName": "--text-sm"
+    },
+    {
+      "name": "--text-base",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Exact source token --text-base matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:42"
+      ],
+      "sourceName": "--text-base"
+    },
+    {
+      "name": "--text-lg",
+      "layer": "A1-structure",
+      "value": "18px",
+      "confidence": "high",
+      "reason": "Exact source token --text-lg matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:43"
+      ],
+      "sourceName": "--text-lg"
+    },
+    {
+      "name": "--text-xl",
+      "layer": "A1-structure",
+      "value": "28px",
+      "confidence": "high",
+      "reason": "Exact source token --text-xl matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:44"
+      ],
+      "sourceName": "--text-xl"
+    },
+    {
+      "name": "--text-2xl",
+      "layer": "A1-structure",
+      "value": "44px",
+      "confidence": "high",
+      "reason": "Exact source token --text-2xl matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:45"
+      ],
+      "sourceName": "--text-2xl"
+    },
+    {
+      "name": "--text-3xl",
+      "layer": "A1-structure",
+      "value": "64px",
+      "confidence": "high",
+      "reason": "Exact source token --text-3xl matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:46"
+      ],
+      "sourceName": "--text-3xl"
+    },
+    {
+      "name": "--text-4xl",
+      "layer": "A1-structure",
+      "value": "120px",
+      "confidence": "high",
+      "reason": "Exact source token --text-4xl matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:47"
+      ],
+      "sourceName": "--text-4xl"
+    },
+    {
+      "name": "--leading-body",
+      "layer": "A1-structure",
+      "value": "1.55",
+      "confidence": "high",
+      "reason": "Exact source token --leading-body matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:48"
+      ],
+      "sourceName": "--leading-body"
+    },
+    {
+      "name": "--leading-tight",
+      "layer": "A1-structure",
+      "value": "0.9",
+      "confidence": "high",
+      "reason": "Exact source token --leading-tight matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:49"
+      ],
+      "sourceName": "--leading-tight"
+    },
+    {
+      "name": "--tracking-display",
+      "layer": "A1-structure",
+      "value": "0.02em",
+      "confidence": "high",
+      "reason": "Exact source token --tracking-display matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:50"
+      ],
+      "sourceName": "--tracking-display"
+    },
+    {
+      "name": "--space-1",
+      "layer": "A2",
+      "value": "4px",
+      "confidence": "high",
+      "reason": "Exact source token --space-1 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:53"
+      ],
+      "sourceName": "--space-1"
+    },
+    {
+      "name": "--space-2",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Exact source token --space-2 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:54"
+      ],
+      "sourceName": "--space-2"
+    },
+    {
+      "name": "--space-3",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Exact source token --space-3 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:55"
+      ],
+      "sourceName": "--space-3"
+    },
+    {
+      "name": "--space-4",
+      "layer": "A2",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Exact source token --space-4 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:56"
+      ],
+      "sourceName": "--space-4"
+    },
+    {
+      "name": "--space-5",
+      "layer": "A2",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Exact source token --space-5 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:57"
+      ],
+      "sourceName": "--space-5"
+    },
+    {
+      "name": "--space-6",
+      "layer": "A2",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Exact source token --space-6 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:58"
+      ],
+      "sourceName": "--space-6"
+    },
+    {
+      "name": "--space-8",
+      "layer": "A2",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Exact source token --space-8 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:59"
+      ],
+      "sourceName": "--space-8"
+    },
+    {
+      "name": "--space-12",
+      "layer": "A2",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Exact source token --space-12 matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:60"
+      ],
+      "sourceName": "--space-12"
+    },
+    {
+      "name": "--section-y-desktop",
+      "layer": "A1-structure",
+      "value": "96px",
+      "confidence": "high",
+      "reason": "Exact source token --section-y-desktop matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:61"
+      ],
+      "sourceName": "--section-y-desktop"
+    },
+    {
+      "name": "--section-y-tablet",
+      "layer": "A1-structure",
+      "value": "64px",
+      "confidence": "high",
+      "reason": "Exact source token --section-y-tablet matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:62"
+      ],
+      "sourceName": "--section-y-tablet"
+    },
+    {
+      "name": "--section-y-phone",
+      "layer": "A1-structure",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Exact source token --section-y-phone matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:63"
+      ],
+      "sourceName": "--section-y-phone"
+    },
+    {
+      "name": "--radius-sm",
+      "layer": "A2",
+      "value": "0px",
+      "confidence": "high",
+      "reason": "Exact source token --radius-sm matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:66"
+      ],
+      "sourceName": "--radius-sm"
+    },
+    {
+      "name": "--radius-md",
+      "layer": "A2",
+      "value": "0px",
+      "confidence": "high",
+      "reason": "Exact source token --radius-md matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:67"
+      ],
+      "sourceName": "--radius-md"
+    },
+    {
+      "name": "--radius-lg",
+      "layer": "A2",
+      "value": "0px",
+      "confidence": "high",
+      "reason": "Exact source token --radius-lg matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:68"
+      ],
+      "sourceName": "--radius-lg"
+    },
+    {
+      "name": "--radius-pill",
+      "layer": "A2",
+      "value": "0px",
+      "confidence": "high",
+      "reason": "Exact source token --radius-pill matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:69"
+      ],
+      "sourceName": "--radius-pill"
+    },
+    {
+      "name": "--elev-flat",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "Exact source token --elev-flat matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:72"
+      ],
+      "sourceName": "--elev-flat"
+    },
+    {
+      "name": "--elev-ring",
+      "layer": "A2",
+      "value": "0 0 0 1px var(--border)",
+      "confidence": "high",
+      "reason": "Exact source token --elev-ring matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:73"
+      ],
+      "sourceName": "--elev-ring"
+    },
+    {
+      "name": "--elev-raised",
+      "layer": "A2",
+      "value": "0 0 0 3px var(--border)",
+      "confidence": "high",
+      "reason": "Exact source token --elev-raised matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:74"
+      ],
+      "sourceName": "--elev-raised"
+    },
+    {
+      "name": "--focus-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px var(--bg), 0 0 0 6px var(--fg-2)",
+      "confidence": "high",
+      "reason": "Exact source token --focus-ring matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:77"
+      ],
+      "sourceName": "--focus-ring"
+    },
+    {
+      "name": "--motion-fast",
+      "layer": "A2",
+      "value": "180ms",
+      "confidence": "high",
+      "reason": "Exact source token --motion-fast matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:80"
+      ],
+      "sourceName": "--motion-fast"
+    },
+    {
+      "name": "--motion-base",
+      "layer": "A2",
+      "value": "220ms",
+      "confidence": "high",
+      "reason": "Exact source token --motion-base matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:81"
+      ],
+      "sourceName": "--motion-base"
+    },
+    {
+      "name": "--ease-standard",
+      "layer": "A2",
+      "value": "cubic-bezier(0, 0, 0.2, 1)",
+      "confidence": "high",
+      "reason": "Exact source token --ease-standard matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:82"
+      ],
+      "sourceName": "--ease-standard"
+    },
+    {
+      "name": "--container-max",
+      "layer": "A1-structure",
+      "value": "1440px",
+      "confidence": "high",
+      "reason": "Exact source token --container-max matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:85"
+      ],
+      "sourceName": "--container-max"
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Exact source token --container-gutter-desktop matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:86"
+      ],
+      "sourceName": "--container-gutter-desktop"
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "layer": "A1-structure",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Exact source token --container-gutter-tablet matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:87"
+      ],
+      "sourceName": "--container-gutter-tablet"
+    },
+    {
+      "name": "--container-gutter-phone",
+      "layer": "A1-structure",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Exact source token --container-gutter-phone matched TOKEN_SCHEMA.",
+      "sources": [
+        "tokens.css:88"
+      ],
+      "sourceName": "--container-gutter-phone"
+    }
+  ]
+}

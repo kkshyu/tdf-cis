@@ -1,0 +1,110 @@
+/* design-systems/tdf-2027/tokens.css
+ * Taiwan Digital Fest 2027 — CIS 1.0 (2026-09-01) bound to the OpenDesign token contract.
+ * Source of truth: brand/cis/品牌色彩計畫.md. Mondrian black grid, pixel headings, 12 fixed swatches,
+ * no gradients, no blur shadows, no rounded corners.
+ */
+
+:root {
+  /* ─── Surface ─── white / light gray are the reading bases; pink is the tertiary block tint */
+  --bg: #FFFFFF;
+  --surface: #F6F6F6;
+  --surface-warm: #F9D2E5;
+
+  /* ─── Foreground ─── ink for long copy, pure black for headings and structure */
+  --fg: #1E1F1C;
+  --fg-2: #000000;
+  --muted: color-mix(in oklab, #1E1F1C, white 28%);
+  --meta: var(--muted);
+
+  /* ─── Border ─── black structural rules; soft separators for inner rows */
+  --border: #000000;
+  --border-soft: color-mix(in oklab, #000000, transparent 85%);
+
+  /* ─── Accent ─── one dominant brand color per screen; yellow is the default action color */
+  --accent: #FFD028;
+  --accent-on: #000000;
+  --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+  --accent-active: color-mix(in oklab, var(--accent), black 14%);
+
+  /* ─── Semantic ─── mapped to official swatches (green / orange / magenta) */
+  --success: #00993E;
+  --warn: #E74310;
+  --danger: #E4003D;
+
+  /* ─── Typography ─── pixel display for English headings; grotesk + Noto for UI and body */
+  --font-display: "Jersey 10", "Space Grotesk", sans-serif;
+  --font-body: "Space Grotesk", "Noto Sans TC", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* type scale — nothing visible below 14px */
+  --text-xs: 14px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 28px;
+  --text-2xl: 44px;
+  --text-3xl: 64px;
+  --text-4xl: 120px;
+  --leading-body: 1.55;
+  --leading-tight: 0.9;
+  --tracking-display: 0.02em;
+
+  /* ─── Spacing ─── 4px base, 8px module */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --section-y-desktop: 96px;
+  --section-y-tablet: 64px;
+  --section-y-phone: 48px;
+
+  /* ─── Radius ─── hard edges everywhere; the CIS forbids rounded corners */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  /* ─── Elevation ─── rings instead of shadows; hierarchy comes from black rules and color blocks */
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: 0 0 0 3px var(--border);
+
+  /* ─── Focus ─── visible black ring offset by a white gap */
+  --focus-ring: 0 0 0 3px var(--bg), 0 0 0 6px var(--fg-2);
+
+  /* ─── Motion ─── 180–240ms ease-out; hard cuts and grid slides, no bounce */
+  --motion-fast: 180ms;
+  --motion-base: 220ms;
+  --ease-standard: cubic-bezier(0, 0, 0.2, 1);
+
+  /* ─── Layout ─── */
+  --container-max: 1440px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-tablet: 24px;
+  --container-gutter-phone: 20px;
+
+  /* ─── TDF extensions (--tdf-*) ─── the 12 official swatches and grid rules */
+  --tdf-yellow: #FFD028;
+  --tdf-cyan: #10B8D9;
+  --tdf-orange: #E74310;
+  --tdf-pink: #F9D2E5;
+  --tdf-green: #00993E;
+  --tdf-magenta: #E4003D;
+  --tdf-purple: #C54090;
+  --tdf-blue: #004E9D;
+  --tdf-gray-50: #F6F6F6;
+  --tdf-ink: #1E1F1C;
+  --tdf-white: #FFFFFF;
+  --tdf-black: #000000;
+  --tdf-font-display-zh: "Cubic 11", "Noto Sans TC", sans-serif;
+  --tdf-leading-display-zh: 1.45;
+  --tdf-tracking-display-zh: 0.08em;
+  --tdf-tracking-eyebrow: 0.2em;
+  --tdf-line: 5px;
+  --tdf-line-mobile: 3px;
+  --tdf-module: 8px;
+}

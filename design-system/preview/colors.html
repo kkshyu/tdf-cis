@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDF 2027 colors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <style>
+      body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: var(--text-base); line-height: var(--leading-body); }
+      main { max-width: var(--container-max); margin: 0 auto; padding: var(--space-12) var(--container-gutter-desktop); }
+      h1 { margin: 0 0 var(--space-6); font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); text-transform: uppercase; color: var(--fg-2); }
+      h2 { margin: var(--space-12) 0 var(--space-4); font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); text-transform: uppercase; color: var(--fg-2); }
+      .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--tdf-line); background: var(--border); border: var(--tdf-line) solid var(--border); }
+      .swatch { min-height: 190px; padding: var(--space-5); display: flex; flex-direction: column; justify-content: space-between; }
+      .swatch b { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); text-transform: uppercase; line-height: 1; }
+      .swatch span { font-size: var(--text-sm); font-weight: 700; }
+      .swatch code { font-family: var(--font-mono); font-size: var(--text-sm); }
+      .roles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .roles article { min-height: 120px; padding: var(--space-5); background: var(--bg); color: var(--fg); }
+      .roles .chip { display: inline-block; width: 40px; height: 40px; border: 2px solid var(--border); background: var(--value); margin-bottom: var(--space-3); }
+      .roles strong { display: block; color: var(--fg-2); }
+      .roles span { font-size: var(--text-sm); color: var(--muted); }
+      p.note { margin: var(--space-4) 0 0; font-size: var(--text-sm); color: var(--muted); max-width: 72ch; }
+      @media (max-width: 760px) { .grid, .roles { grid-template-columns: 1fr 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Official swatches</h1>
+      <section class="grid" aria-label="Twelve official swatches">
+        <article class="swatch" style="background: var(--tdf-yellow); color: #000"><div><b>Yellow</b><br /><span>主色 · 亮黃色</span></div><code>#FFD028 · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-cyan); color: #000"><div><b>Cyan</b><br /><span>主色 · 青藍色</span></div><code>#10B8D9 · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-orange); color: #000"><div><b>Orange</b><br /><span>主色 · 橘紅色</span></div><code>#E74310 · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-pink); color: #000"><div><b>Pink</b><br /><span>點綴 · 淺粉色</span></div><code>#F9D2E5 · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-green); color: #000"><div><b>Green</b><br /><span>點綴 · 綠色</span></div><code>#00993E · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-magenta); color: #fff"><div><b>Magenta</b><br /><span>點綴 · 桃紅色</span></div><code>#E4003D · text white</code></article>
+        <article class="swatch" style="background: var(--tdf-purple); color: #fff"><div><b>Purple</b><br /><span>點綴 · 紫紅色</span></div><code>#C54090 · text white or black</code></article>
+        <article class="swatch" style="background: var(--tdf-blue); color: #fff"><div><b>Blue</b><br /><span>輔色 · 深藍色</span></div><code>#004E9D · text white</code></article>
+        <article class="swatch" style="background: var(--tdf-gray-50); color: #000"><div><b>Gray 50</b><br /><span>基底 · 淺灰色</span></div><code>#F6F6F6 · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-ink); color: #fff"><div><b>Ink</b><br /><span>基底 · 深灰黑色</span></div><code>#1E1F1C · text white</code></article>
+        <article class="swatch" style="background: var(--tdf-white); color: #000"><div><b>White</b><br /><span>基底 · 白色</span></div><code>#FFFFFF · text black</code></article>
+        <article class="swatch" style="background: var(--tdf-black); color: #fff"><div><b>Black</b><br /><span>結構 · 黑色</span></div><code>#000000 · text white</code></article>
+      </section>
+      <p class="note">One dominant color per screen. Pink, green, magenta and purple are for rhythm and sectioning and never rank the three places. Orange-white and green-white pairs are display sizes only.</p>
+
+      <h2>Semantic roles</h2>
+      <section class="grid roles" aria-label="Token roles">
+        <article><span class="chip" style="--value: var(--bg)"></span><strong>--bg</strong><span>Page canvas · white</span></article>
+        <article><span class="chip" style="--value: var(--surface)"></span><strong>--surface</strong><span>Lifted block · gray 50</span></article>
+        <article><span class="chip" style="--value: var(--surface-warm)"></span><strong>--surface-warm</strong><span>Tertiary tint · pink</span></article>
+        <article><span class="chip" style="--value: var(--fg)"></span><strong>--fg</strong><span>Body copy · ink</span></article>
+        <article><span class="chip" style="--value: var(--fg-2)"></span><strong>--fg-2</strong><span>Headings · black</span></article>
+        <article><span class="chip" style="--value: var(--muted)"></span><strong>--muted / --meta</strong><span>Captions · ink + 28% white (≈7:1)</span></article>
+        <article><span class="chip" style="--value: var(--border)"></span><strong>--border</strong><span>Grid rules · black</span></article>
+        <article><span class="chip" style="--value: var(--border-soft)"></span><strong>--border-soft</strong><span>Row separators · black 15%</span></article>
+        <article><span class="chip" style="--value: var(--accent)"></span><strong>--accent</strong><span>Primary action · yellow, black text</span></article>
+        <article><span class="chip" style="--value: var(--success)"></span><strong>--success</strong><span>Green</span></article>
+        <article><span class="chip" style="--value: var(--warn)"></span><strong>--warn</strong><span>Orange</span></article>
+        <article><span class="chip" style="--value: var(--danger)"></span><strong>--danger</strong><span>Magenta</span></article>
+      </section>
+    </main>
+  </body>
+</html>

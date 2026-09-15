@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TDF 2027 CIS — Brand Identity System</title>
+  <meta name="description" content="Taiwan Digital Fest 2027 brand identity system: Mondrian black grid, pixel headings, 12 fixed swatches, hard edges. Tokens, components and specification for designers and agents.">
+  <link rel="icon" href="design-system/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="TDF 2027 CIS — Brand Identity System">
+  <meta property="og:description" content="Mondrian grid · pixel headings · 12 swatches · hard edges. Hosted by TDNA.">
+  <meta property="og:image" content="https://cis.taiwandigitalfest.com/design-system/assets/og-image.png">
+  <meta property="og:url" content="https://cis.taiwandigitalfest.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system/fonts/fonts.css">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <style>
+    /* ── base (OpenDesign contract: every color/size comes from tokens.css) ── */
+    *,*::before,*::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--surface); color:var(--fg); font-family:var(--font-body); font-size:var(--text-base); line-height:var(--leading-body); -webkit-font-smoothing:antialiased; }
+    img { display:block; max-width:100%; }
+    h1,h2,h3,h4,p,figure,ul,ol { margin:0; }
+    h1,h2,h3,h4 { font-family:var(--font-display); font-weight:400; line-height:var(--leading-tight); letter-spacing:var(--tracking-display); text-transform:uppercase; color:inherit; }
+    a { color:inherit; }
+    code { font-family:var(--font-mono); font-size:var(--text-sm); }
+    .page { max-width:var(--container-max); margin-inline:auto; background:var(--bg); border-inline:var(--tdf-line) solid var(--border); }
+    .pixel { font-family:var(--font-display); font-weight:400; text-transform:uppercase; }
+    .pixel-zh { font-family:var(--tdf-font-display-zh); font-weight:700; line-height:var(--tdf-leading-display-zh); letter-spacing:var(--tdf-tracking-display-zh); text-transform:none; }
+    .eyebrow { font-size:var(--text-sm); font-weight:700; letter-spacing:var(--tdf-tracking-eyebrow); text-transform:uppercase; }
+    .lead { font-size:clamp(25px,3vw,var(--text-2xl)); line-height:1.12; font-weight:700; letter-spacing:-.025em; }
+    .body { font-size:var(--text-base); line-height:1.65; }
+    .caption { font-size:var(--text-sm); color:var(--muted); }
+    .link { color:var(--fg-2); font-weight:700; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; }
+    .link:hover { text-decoration-color:var(--accent); }
+    :focus-visible { outline:none; box-shadow:var(--focus-ring); }
+
+    /* ── nav ── */
+    .nav { position:sticky; top:0; z-index:10; display:flex; align-items:stretch; min-height:60px; background:var(--bg); border-bottom:var(--tdf-line) solid var(--border); }
+    .nav__brand { display:inline-flex; align-items:center; gap:var(--space-3); padding:0 var(--space-5); border-right:var(--tdf-line) solid var(--border); color:var(--fg-2); font-weight:700; text-decoration:none; white-space:nowrap; }
+    .nav__brand img { width:32px; height:32px; }
+    .nav__brand b { background:var(--accent); color:var(--accent-on); border:3px solid var(--border); padding:0 var(--space-2); line-height:1.2; }
+    .nav__links { display:flex; overflow-x:auto; scrollbar-width:none; flex:1; }
+    .nav__links a { display:inline-flex; align-items:center; padding:0 var(--space-4); font-size:var(--text-sm); font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--fg-2); text-decoration:none; border-right:1px solid var(--border-soft); white-space:nowrap; transition:background-color var(--motion-fast) var(--ease-standard); }
+    .nav__links a:hover { background:var(--surface); }
+    .nav__links a:focus-visible { box-shadow:inset 0 0 0 3px var(--fg-2); }
+    .nav__links a.is-spec { margin-left:auto; background:var(--fg-2); color:var(--bg); border:0; }
+    .nav__links a.is-spec:hover { background:var(--accent); color:var(--accent-on); }
+
+    /* ── hero (Mondrian hero recipe) ── */
+    .hero { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:var(--tdf-line); background:var(--border); border-bottom:var(--tdf-line) solid var(--border); }
+    .hero__main { min-height:650px; display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-8); padding:var(--space-12) var(--container-gutter-desktop) var(--space-8); background:var(--accent); color:var(--accent-on); }
+    .hero__title { font-size:clamp(92px,12vw,184px); line-height:.78; letter-spacing:.01em; }
+    .hero__title span { display:block; }
+    .hero__tag { font-size:25px; line-height:1.15; max-width:600px; font-weight:500; }
+    .hero__tag .zh { display:block; font-size:var(--text-lg); margin-top:var(--space-2); }
+    .hero__side { display:grid; grid-template-rows:1fr 1fr 1fr; gap:var(--tdf-line); background:var(--border); }
+    .hero__cell { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:var(--space-3); text-align:center; padding:var(--space-6); }
+    .hero__cell img { width:130px; height:130px; }
+    .hero__cell .year { font-size:112px; line-height:.8; }
+    .hero__cell .meta { font-size:var(--text-sm); font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .c-magenta { background:var(--tdf-magenta); color:var(--bg); }
+    .c-blue { background:var(--tdf-blue); color:var(--bg); }
+    .c-pink { background:var(--surface-warm); color:var(--fg-2); }
+    .c-yellow { background:var(--tdf-yellow); color:var(--fg-2); }
+    .c-cyan { background:var(--tdf-cyan); color:var(--fg-2); }
+    .c-green { background:var(--tdf-green); color:var(--fg-2); }
+    .c-orange { background:var(--tdf-orange); color:var(--fg-2); }
+    .c-purple { background:var(--tdf-purple); color:var(--bg); }
+    .c-ink { background:var(--tdf-ink); color:var(--bg); }
+    .c-black { background:var(--tdf-black); color:var(--bg); }
+    .c-gray { background:var(--surface); color:var(--fg-2); }
+    .places { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:var(--tdf-line); background:var(--border); }
+    .place { min-height:128px; display:flex; justify-content:space-between; align-items:end; gap:var(--space-3); padding:var(--space-6) var(--space-8); }
+    .place b { font-family:var(--font-display); font-weight:400; font-size:34px; line-height:1; text-transform:uppercase; }
+    .place span { font-size:var(--text-sm); font-weight:700; text-align:right; }
+    .actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-4); }
+
+    /* ── buttons (component recipe) ── */
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 var(--space-6); border:3px solid var(--border); border-radius:var(--radius-sm); background:var(--bg); color:var(--fg-2); font:700 var(--text-base)/1 var(--font-body); text-decoration:none; cursor:pointer; transition:background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+    .btn:active { transform:translate(2px,2px); }
+    .btn--primary { background:var(--accent); color:var(--accent-on); }
+    .btn--primary:hover { background:var(--fg-2); color:var(--bg); }
+    .btn--secondary:hover { background:var(--surface); }
+
+    /* ── sections ── */
+    .section { border-bottom:var(--tdf-line) solid var(--border); scroll-margin-top:60px; }
+    .section__head { display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-5); padding:var(--space-4) var(--space-8); border-bottom:var(--tdf-line) solid var(--border); background:var(--fg); color:var(--bg); }
+    .section__head h2 { font-size:clamp(28px,4vw,48px); letter-spacing:-.03em; }
+    .section__head span { font-size:var(--text-sm); letter-spacing:.18em; text-transform:uppercase; }
+    .grid { display:grid; gap:var(--tdf-line); background:var(--border); }
+    .grid + .grid { border-top:var(--tdf-line) solid var(--border); }
+    .cell { background:var(--bg); padding:var(--space-8); min-width:0; }
+    .cell h3 { font-size:var(--text-xl); margin-bottom:var(--space-3); }
+    .cell ul { padding-left:var(--space-5); font-size:var(--text-base); line-height:1.7; }
+    .cell ul.tight { font-size:var(--text-sm); line-height:1.6; }
+
+    /* core */
+    .core { grid-template-columns:1.2fr .8fr; }
+    .core__statement { min-height:340px; display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-5); background:var(--tdf-cyan); color:var(--fg-2); }
+    .principles { display:grid; grid-template-columns:1fr 1fr; gap:var(--tdf-line); background:var(--border); }
+    .principle { min-height:168px; display:flex; flex-direction:column; justify-content:space-between; }
+    .principle b { font-family:var(--font-display); font-weight:400; font-size:21px; text-transform:uppercase; }
+    .principle p { font-size:var(--text-sm); line-height:1.45; }
+    .architecture { grid-template-columns:1fr 1fr 1fr; }
+    .arch { min-height:250px; display:flex; flex-direction:column; justify-content:space-between; }
+    .arch__n { font-size:78px; line-height:.8; }
+    .arch h3 { font-size:26px; }
+    .arch p { font-size:var(--text-sm); line-height:1.55; }
+    .fixed { grid-template-columns:1fr 1fr 1fr; }
+    .fixed .cell b { display:block; font-family:var(--font-display); font-weight:400; font-size:var(--text-xl); text-transform:uppercase; margin-bottom:var(--space-3); }
+    .fixed .cell p { font-size:var(--text-base); }
+
+    /* logo */
+    .logo-grid { grid-template-columns:1.2fr .8fr; }
+    .logo-stage { min-height:460px; display:flex; align-items:center; justify-content:center; background:var(--surface); }
+    .clearspace { width:min(440px,72vw); aspect-ratio:1; padding:17%; border:3px dashed var(--border); position:relative; }
+    .clearspace img { width:100%; height:100%; }
+    .clearspace::before { content:"¼ mark clear space"; position:absolute; top:var(--space-2); left:var(--space-3); font-size:var(--text-sm); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .logo-rules { display:grid; grid-template-columns:1fr 1fr; gap:var(--tdf-line); background:var(--border); }
+    .rulecard { min-height:220px; }
+    .rulecard h3 { font-size:var(--text-lg); margin-bottom:var(--space-4); }
+    .lockups { grid-template-columns:1.4fr 1fr; }
+    .lockup { display:flex; align-items:center; gap:var(--space-5); }
+    .lockup img { width:78px; height:78px; }
+    .lockup__type { font-size:52px; line-height:.78; }
+    .lockup__type small { display:block; margin-top:var(--space-3); font-family:var(--font-body); font-size:var(--text-sm); font-weight:700; letter-spacing:.13em; }
+    .sizes { display:flex; align-items:end; gap:var(--space-6); }
+    .sizes figure { display:flex; flex-direction:column; align-items:center; gap:var(--space-2); font-size:var(--text-sm); font-weight:700; }
+    .bgs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--space-3); margin-top:var(--space-5); }
+    .bgs div { display:flex; flex-direction:column; align-items:center; gap:var(--space-3); padding:var(--space-4); font-size:var(--text-sm); font-weight:700; text-align:center; border:2px solid var(--border); }
+    .bgs img { width:48px; height:48px; }
+    .bgs .plate { background:var(--bg); padding:var(--space-2); }
+
+    /* color */
+    .palette { grid-template-columns:repeat(4,1fr); }
+    .swatch { min-height:190px; display:flex; flex-direction:column; justify-content:space-between; padding:var(--space-6); }
+    .swatch b { font-family:var(--font-display); font-weight:400; font-size:var(--text-xl); text-transform:uppercase; line-height:1; }
+    .swatch small { display:block; font-size:var(--text-sm); font-weight:700; margin-top:var(--space-1); }
+    .swatch code { font-size:var(--text-sm); font-weight:700; }
+    .color-rules { grid-template-columns:1fr 1fr 1fr; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:var(--text-base); }
+    th,td { text-align:left; padding:var(--space-3) var(--space-2); border-bottom:1px solid var(--border-soft); vertical-align:top; }
+    thead th { background:var(--surface); color:var(--fg-2); font-size:var(--text-sm); letter-spacing:.08em; text-transform:uppercase; border-bottom:3px solid var(--border); }
+    td.num { font-family:var(--font-mono); font-variant-numeric:tabular-nums; text-align:right; }
+    .chip { display:inline-block; width:18px; height:18px; border:2px solid var(--border); vertical-align:-3px; margin-right:var(--space-2); }
+
+    /* type */
+    .type-grid { grid-template-columns:1.2fr .8fr; }
+    .type-display { min-height:430px; display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-5); background:var(--accent); color:var(--accent-on); }
+    .type-display .sample { font-size:clamp(88px,12vw,176px); line-height:.75; }
+    .scale { grid-template-columns:repeat(4,1fr); }
+    .scale .cell { min-height:170px; display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-4); }
+    .scale .cell b { font-size:var(--text-sm); letter-spacing:.15em; text-transform:uppercase; }
+    .scale .cell code { color:var(--muted); }
+
+    /* layout */
+    .layout-grid { grid-template-columns:1fr 1fr; }
+    .mondrian { min-height:440px; display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:1fr 1fr 1fr; gap:var(--tdf-line); padding:var(--tdf-line); background:var(--border); }
+    .mondrian div:nth-child(1) { grid-row:1/3; background:var(--tdf-yellow); }
+    .mondrian div:nth-child(2) { grid-column:2/4; background:var(--tdf-blue); }
+    .mondrian div:nth-child(3) { background:var(--tdf-pink); }
+    .mondrian div:nth-child(4) { grid-row:2/4; grid-column:3; background:var(--tdf-magenta); }
+    .mondrian div:nth-child(5) { grid-column:1/3; background:var(--tdf-cyan); }
+    .layout-rules { display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-5); }
+    .measure { display:grid; grid-template-columns:repeat(8,1fr); height:80px; border:3px solid var(--border); }
+    .measure i { border-right:1px solid var(--border-soft); }
+    .measure i:last-child { border:0; }
+    .layout-specs { grid-template-columns:repeat(4,1fr); }
+    .layout-specs .cell b { display:block; font-family:var(--font-display); font-weight:400; font-size:var(--text-2xl); line-height:.9; text-transform:uppercase; margin-bottom:var(--space-3); }
+    .layout-specs .cell span { font-size:var(--text-sm); line-height:1.5; }
+
+    /* components */
+    .components { grid-template-columns:1.1fr .9fr; }
+    .states { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-4); margin-top:var(--space-5); }
+    .states figure { display:grid; gap:var(--space-2); font-size:var(--text-sm); font-weight:700; }
+    .btn.is-hover { background:var(--fg-2); color:var(--bg); }
+    .btn.is-focus { box-shadow:var(--focus-ring); }
+    .btn.is-active { transform:translate(2px,2px); }
+    .tags { display:flex; flex-wrap:wrap; gap:var(--space-2); }
+    .tag { display:inline-flex; align-items:center; min-height:28px; padding:0 var(--space-3); border:2px solid var(--border); font-size:var(--text-sm); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .status { display:inline-flex; align-items:center; gap:var(--space-2); font-size:var(--text-sm); font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+    .status::before { content:""; width:12px; height:12px; border:2px solid var(--border); background:var(--success); }
+    .status--warn::before { background:var(--warn); }
+    .status--danger::before { background:var(--danger); }
+    .field { display:grid; gap:var(--space-2); }
+    label { font-size:var(--text-sm); font-weight:700; color:var(--fg-2); }
+    input,select,textarea { width:100%; min-height:46px; padding:0 var(--space-4); border:3px solid var(--border); border-radius:var(--radius-sm); background:var(--bg); color:var(--fg); font:inherit; }
+    input:focus,select:focus,textarea:focus { outline:none; box-shadow:var(--focus-ring); border-bottom-color:var(--accent); }
+    .field--error input { border-color:var(--danger); }
+    .error { font-size:var(--text-sm); font-weight:700; color:var(--danger); }
+    .form-grid { display:grid; gap:var(--space-5); margin-top:var(--space-5); }
+    .event { display:grid; grid-template-columns:96px 1fr; padding:0; border:3px solid var(--border); margin-top:var(--space-5); }
+    .event__date { background:var(--tdf-blue); color:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:var(--space-4); border-right:3px solid var(--border); }
+    .event__date b { font-family:var(--font-display); font-weight:400; font-size:56px; line-height:.8; }
+    .event__date span { font-size:var(--text-sm); font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .event__body { padding:var(--space-5) var(--space-6); display:flex; flex-direction:column; gap:var(--space-3); }
+    .event__body h4 { font-size:var(--text-xl); }
+    .meta-row { display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-4); font-size:var(--text-sm); color:var(--muted); }
+    .comp-rules { grid-template-columns:repeat(4,1fr); }
+
+    /* motion */
+    .motion { grid-template-columns:repeat(4,1fr); }
+    .motion .cell b { display:block; font-family:var(--font-display); font-weight:400; font-size:var(--text-2xl); line-height:.9; text-transform:uppercase; margin-bottom:var(--space-3); }
+    .motion .cell span { font-size:var(--text-sm); line-height:1.5; }
+    .flip { display:grid; grid-template-columns:1fr 1fr; gap:var(--tdf-line); background:var(--border); border:var(--tdf-line) solid var(--border); margin-top:var(--space-5); }
+    .flip div { min-height:96px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:var(--text-sm); text-transform:uppercase; letter-spacing:.08em; background:var(--accent); color:var(--accent-on); transition:background-color var(--motion-base) var(--ease-standard), color var(--motion-base) var(--ease-standard); }
+    .flip:hover div { background:var(--fg-2); color:var(--bg); }
+
+    /* imagery */
+    .photo-grid { grid-template-columns:repeat(3,1fr); }
+    .photo { padding:0; min-height:360px; position:relative; overflow:hidden; }
+    .photo img { width:100%; height:100%; object-fit:cover; }
+    .photo__cap { position:absolute; left:0; right:0; bottom:0; padding:var(--space-3) var(--space-4); background:var(--tdf-black); color:var(--bg); font-size:var(--text-sm); font-weight:700; }
+    .sheep { background:var(--accent); display:flex; align-items:center; justify-content:center; }
+    .sheep img { object-fit:contain; image-rendering:pixelated; }
+    .photo-rules { grid-template-columns:1fr 1fr; }
+
+    /* voice */
+    .voice { grid-template-columns:1fr 1fr; }
+    .voice .cell { min-height:300px; }
+    .voice h3 { font-size:24px; margin-bottom:var(--space-4); }
+    .voice ul { font-size:var(--text-base); line-height:1.75; }
+    .voice__yes { background:var(--tdf-green); color:var(--fg-2); }
+    .voice__no { background:var(--tdf-magenta); color:var(--bg); }
+
+    /* applications */
+    .applications { grid-template-columns:1fr 1fr; }
+    .og-preview { padding:0; background:var(--tdf-black); }
+    .og-preview img { width:100%; height:100%; object-fit:contain; }
+    .specs { display:grid; grid-template-columns:1fr 1fr; gap:var(--tdf-line); background:var(--border); }
+    .spec { min-height:165px; display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-3); }
+    .spec b { font-family:var(--font-display); font-weight:400; font-size:var(--text-lg); text-transform:uppercase; }
+    .spec span { font-size:var(--text-sm); line-height:1.45; }
+    .checklist { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-4) var(--space-8); padding:var(--space-8); background:var(--bg); }
+    .check { display:flex; gap:var(--space-3); font-size:var(--text-sm); line-height:1.5; }
+    .check::before { content:""; flex:none; width:18px; height:18px; border:2px solid var(--border); }
+
+    /* tokens / downloads */
+    .tokens { grid-template-columns:1.1fr .9fr; }
+    .files { display:grid; grid-template-columns:1fr 1fr; gap:var(--tdf-line); background:var(--border); }
+    .file { display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-4); min-height:150px; text-decoration:none; color:var(--fg-2); transition:background-color var(--motion-fast) var(--ease-standard); }
+    .file:hover { background:var(--accent); }
+    .file b { font-family:var(--font-display); font-weight:400; font-size:var(--text-xl); text-transform:uppercase; }
+    .file span { font-size:var(--text-sm); line-height:1.5; }
+    .file code { font-weight:700; }
+    pre { margin:var(--space-5) 0 0; padding:var(--space-4); background:var(--surface); border:3px solid var(--border); overflow:auto; font-family:var(--font-mono); font-size:var(--text-sm); line-height:1.6; }
+    .previews { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-5); }
+    .previews a { display:inline-flex; align-items:center; min-height:36px; padding:0 var(--space-3); border:2px solid var(--border); font-size:var(--text-sm); font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color:var(--fg-2); }
+    .previews a:hover { background:var(--surface); }
+
+    /* footer */
+    .footer { display:grid; grid-template-columns:1fr auto; gap:var(--space-8); align-items:center; padding:var(--space-8) var(--container-gutter-desktop); background:var(--fg); color:var(--bg); }
+    .footer h2 { font-size:36px; }
+    .footer p { margin-top:var(--space-2); font-size:var(--text-sm); }
+    .footer .endorse { display:inline-flex; align-items:center; gap:var(--space-4); font-size:var(--text-sm); font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .footer .endorse img { height:40px; width:auto; background:var(--bg); padding:var(--space-1); }
+    .footer__side { display:grid; gap:var(--space-4); justify-items:end; }
+
+    @media (max-width:1023px) {
+      .cell { padding:var(--space-6); }
+      .palette,.scale,.layout-specs,.motion,.comp-rules { grid-template-columns:1fr 1fr; }
+      .architecture,.fixed,.color-rules,.photo-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:639px) {
+      :root { --tdf-line:var(--tdf-line-mobile); }
+      .page { border-inline:0; }
+      .hero { grid-template-columns:1fr; }
+      .hero__main { min-height:520px; padding:var(--space-8) var(--container-gutter-phone); }
+      .hero__side { grid-template-columns:1fr 1fr 1fr; grid-template-rows:1fr; }
+      .hero__cell { padding:var(--space-4) var(--space-2); } .hero__cell img { width:64px; height:64px; }
+      .hero__cell .year { font-size:56px; }
+      .places { grid-template-columns:1fr; } .place { min-height:95px; padding:var(--space-5) var(--container-gutter-phone); }
+      .core,.logo-grid,.lockups,.type-grid,.layout-grid,.components,.voice,.applications,.tokens,.photo-rules { grid-template-columns:1fr; }
+      .principles,.logo-rules,.specs,.files,.states,.bgs,.checklist { grid-template-columns:1fr; }
+      .palette,.scale,.layout-specs,.motion,.comp-rules { grid-template-columns:1fr 1fr; }
+      .swatch { min-height:140px; padding:var(--space-4); }
+      .lockup__type { font-size:38px; } .section__head { padding:var(--space-4) var(--container-gutter-phone); }
+      .footer { grid-template-columns:1fr; padding:var(--space-8) var(--container-gutter-phone); } .footer__side { justify-items:start; }
+      .event { grid-template-columns:72px 1fr; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .btn,.nav__links a,.file,.flip div { transition:none; } }
+    @media print { .nav { display:none; } .page { max-width:none; border:0; } .section,.hero { break-inside:avoid; } }
+  </style>
+</head>
+<body>
+<main class="page">
+  <nav class="nav" aria-label="CIS 章節">
+    <a class="nav__brand" href="#top"><img src="design-system/assets/favicon.svg" alt=""><b>TDF</b> 2027 CIS</a>
+    <div class="nav__links">
+      <a href="#core">Core</a><a href="#logo">Logo</a><a href="#color">Color</a><a href="#type">Type</a><a href="#layout">Layout</a><a href="#components">Components</a><a href="#motion">Motion</a><a href="#imagery">Imagery</a><a href="#voice">Voice</a><a href="#apply">Applications</a><a href="#tokens">Tokens</a>
+      <a class="is-spec" href="spec.html">Full spec</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero__main">
+      <span class="eyebrow">Brand Identity System · CIS 1.0 · 2026-09-01</span>
+      <h1 class="hero__title"><span>Taiwan</span><span>Digital</span><span>Fest</span></h1>
+      <div>
+        <p class="hero__tag">Where digital nomads meet nature &amp; innovation.<span class="zh">數位遊牧者，相遇於山海與創新。</span></p>
+        <div class="actions" style="margin-top:var(--space-6)"><a class="btn btn--primary" href="#tokens">Get the tokens</a><a class="btn btn--secondary" href="spec.html">Read the spec</a></div>
+      </div>
+    </div>
+    <div class="hero__side">
+      <div class="hero__cell c-pink"><img src="design-system/assets/favicon.svg" alt="TDF 品牌圖記"><span class="meta">Official mark</span></div>
+      <div class="hero__cell c-magenta"><span class="year pixel">2027</span><span class="meta">Apr 19 — May 31</span></div>
+      <div class="hero__cell c-blue"><span class="eyebrow">Hosted by</span><strong style="font-size:36px;letter-spacing:.06em">TDNA</strong><span class="meta">Taiwan Digital Nomad Association</span></div>
+    </div>
+    <div class="places">
+      <div class="place c-blue"><b>Hualien</b><span>花蓮 · Apr 19 – 30</span></div>
+      <div class="place c-cyan"><b>Taitung</b><span>台東 · May 1 – 28</span></div>
+      <div class="place c-green"><b>Green Island</b><span>綠島 · May 29 – 31</span></div>
+    </div>
+  </header>
+
+  <!-- ───────── CORE ───────── -->
+  <section class="section" id="core">
+    <div class="section__head"><h2>Brand Core</h2><span>品牌核心</span></div>
+    <div class="grid core">
+      <article class="cell core__statement"><span class="eyebrow">Positioning</span><p class="lead">TDF 不是一場單點活動，而是亞太數位遊牧社群在東台灣展開的 43 天共同生活。</p><p class="body">One festival. Three places. A community-led migration across East Taiwan.</p></article>
+      <div class="principles">
+        <article class="cell principle"><span class="eyebrow">01</span><b>Community-led</b><p>真實社群先於流量與推銷。</p></article>
+        <article class="cell principle c-pink"><span class="eyebrow">02</span><b>Work × Nature</b><p>工作節奏與山海生活並存。</p></article>
+        <article class="cell principle c-yellow"><span class="eyebrow">03</span><b>Locally rooted</b><p>面向國際，也尊重地方脈絡。</p></article>
+        <article class="cell principle c-magenta"><span class="eyebrow">04</span><b>Open &amp; direct</b><p>清楚、誠實、有文化感。</p></article>
+      </div>
+    </div>
+    <div class="grid architecture">
+      <article class="cell arch"><span class="arch__n pixel">TDNA</span><div><h3>Endorser</h3><p>主辦與背書品牌，承載組織信用。背書句固定：<code>HOSTED BY TAIWAN DIGITAL NOMAD ASSOCIATION · TDNA</code>，高度 ≤ 標題 25%。</p></div></article>
+      <article class="cell arch c-yellow"><span class="arch__n pixel">TDF</span><div><h3>Event Brand</h3><p>Taiwan Digital Fest 2027 是所有參與者接觸的主要對外身份。</p></div></article>
+      <article class="cell arch c-blue"><span class="arch__n pixel">3×</span><div><h3>Equal Places</h3><p>花蓮、台東、綠島平等並列。不用 Act I／II／III、第一站／壓軸；顏色不永久綁定某一地。</p></div></article>
+    </div>
+    <div class="grid fixed">
+      <article class="cell"><b>Tagline</b><p>Where digital nomads meet nature &amp; innovation.<br>數位遊牧者，相遇於山海與創新。</p><p class="caption" style="margin-top:var(--space-3)">固定句，不改寫。</p></article>
+      <article class="cell c-gray"><b>Dates</b><p>Apr 19 — May 31, 2027<br>2027 年 4 月 19 日至 5 月 31 日（43 天）</p></article>
+      <article class="cell"><b>Places</b><p>HUALIEN · TAITUNG · GREEN ISLAND<br>花蓮 · 台東 · 綠島</p><p class="caption" style="margin-top:var(--space-3)">同尺寸、同字重、同位階。</p></article>
+    </div>
+  </section>
+
+  <!-- ───────── LOGO ───────── -->
+  <section class="section" id="logo">
+    <div class="section__head"><h2>Logo System</h2><span>標誌系統</span></div>
+    <div class="grid logo-grid">
+      <div class="cell logo-stage"><div class="clearspace"><img src="design-system/assets/favicon.svg" alt="TDF 全彩品牌圖記與安全距離"></div></div>
+      <div class="logo-rules">
+        <article class="cell rulecard"><h3>Minimum size</h3><ul class="tight"><li>Digital 16 px</li><li>UI preferred 24 px</li><li>Print 8 mm · wordmark ≥ 32 mm</li></ul><div class="sizes" style="margin-top:var(--space-5)"><figure><img src="design-system/assets/favicon.svg" width="16" height="16" alt="">16</figure><figure><img src="design-system/assets/favicon.svg" width="24" height="24" alt="">24</figure><figure><img src="design-system/assets/favicon.svg" width="32" height="32" alt="">32</figure><figure><img src="design-system/assets/favicon.svg" width="48" height="48" alt="">48</figure></div></article>
+        <article class="cell rulecard c-yellow"><h3>Clear space</h3><ul class="tight"><li>¼ mark width every side</li><li>No text or partner logo inside</li><li>On photos add a white or black plate first</li></ul></article>
+        <article class="cell rulecard c-magenta"><h3>Do not</h3><ul class="tight"><li>Stretch, rotate, skew, round</li><li>Recolor, gradient, shadow, outline, glow</li><li>Redraw, retrace or AI-regenerate</li></ul></article>
+        <article class="cell rulecard"><h3>Small format</h3><ul class="tight"><li>Mark only below 32 px</li><li>No endorsement line</li><li>Vector file only · crisp edges</li></ul></article>
+      </div>
+    </div>
+    <div class="grid lockups">
+      <article class="cell">
+        <span class="eyebrow">Full lockup</span>
+        <div class="lockup" style="margin-top:var(--space-5)"><img src="design-system/assets/favicon.svg" alt=""><div class="lockup__type pixel">Taiwan Digital Fest<small>2027 · HOSTED BY TAIWAN DIGITAL NOMAD ASSOCIATION · TDNA</small></div></div>
+        <div class="bgs"><div style="background:var(--bg)"><img src="design-system/assets/favicon.svg" alt=""><span>White / gray · full color</span></div><div class="c-yellow"><img src="design-system/assets/favicon.svg" alt=""><span>Solid brand color · full color</span></div><div class="c-black"><span class="plate"><img src="design-system/assets/favicon.svg" alt=""></span><span>Dark or photo · plate first</span></div></div>
+      </article>
+      <article class="cell c-gray">
+        <span class="eyebrow">Navigation short mark</span>
+        <p style="margin-top:var(--space-5)"><a class="nav__brand" href="#top" style="background:var(--bg);border:3px solid var(--border);padding:var(--space-3) var(--space-5)"><img src="design-system/assets/favicon.svg" alt=""><b>TDF</b> 2027</a></p>
+        <p class="body" style="margin-top:var(--space-5)">Space Grotesk 700，<code>TDF</code> 可放進黃色方塊加黑框。背書 <code>Hosted by TDNA</code> 高度 ≤ 標題 25%。</p>
+        <p class="endorse" style="margin-top:var(--space-5);display:inline-flex;align-items:center;gap:var(--space-4);font-size:var(--text-sm);font-weight:700;letter-spacing:.12em;text-transform:uppercase"><img src="design-system/assets/tdna-logo.png" alt="TDNA logo" style="height:40px;background:var(--bg);padding:var(--space-1)"> Hosted by TDNA</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────── COLOR ───────── -->
+  <section class="section" id="color">
+    <div class="section__head"><h2>Color System</h2><span>12 official swatches · 一畫面一主色</span></div>
+    <div class="grid palette">
+      <div class="swatch c-yellow"><div><b>Yellow</b><small>Primary · 亮黃</small></div><code>#FFD028 · --tdf-yellow / --accent</code></div>
+      <div class="swatch c-cyan"><div><b>Cyan</b><small>Primary · 青藍</small></div><code>#10B8D9 · --tdf-cyan</code></div>
+      <div class="swatch c-orange"><div><b>Orange</b><small>Primary · 橘紅</small></div><code>#E74310 · --tdf-orange / --warn</code></div>
+      <div class="swatch c-pink"><div><b>Pink</b><small>Accent · 淺粉</small></div><code>#F9D2E5 · --tdf-pink / --surface-warm</code></div>
+      <div class="swatch c-green"><div><b>Green</b><small>Accent · 綠</small></div><code>#00993E · --tdf-green / --success</code></div>
+      <div class="swatch c-magenta"><div><b>Magenta</b><small>Accent · 桃紅</small></div><code>#E4003D · --tdf-magenta / --danger</code></div>
+      <div class="swatch c-purple"><div><b>Purple</b><small>Accent · 紫紅</small></div><code>#C54090 · --tdf-purple</code></div>
+      <div class="swatch c-blue"><div><b>Blue</b><small>Support · 深藍</small></div><code>#004E9D · --tdf-blue</code></div>
+      <div class="swatch c-gray"><div><b>Gray 50</b><small>Base · 淺灰</small></div><code>#F6F6F6 · --tdf-gray-50 / --surface</code></div>
+      <div class="swatch c-ink"><div><b>Ink</b><small>Base · 深灰黑</small></div><code>#1E1F1C · --tdf-ink / --fg</code></div>
+      <div class="swatch" style="background:var(--bg)"><div><b>White</b><small>Base</small></div><code>#FFFFFF · --tdf-white / --bg</code></div>
+      <div class="swatch c-black"><div><b>Black</b><small>Structure</small></div><code>#000000 · --tdf-black / --border</code></div>
+    </div>
+    <div class="grid color-rules">
+      <article class="cell"><h3>Roles</h3><ul class="tight"><li>白與淺灰是閱讀底；黑畫格線；Ink 排長文。</li><li>黃、青、橘承載主視覺與動作。<strong>一畫面只有一個主色</strong>：<code>--accent</code> 預設黃，可整頁換成青或橘，不三色並用。</li><li>粉、綠、桃紅、紫紅做節奏與分區，不能暗示三地高低。</li><li>深藍給冷靜資訊、深底標題或暗色區塊。</li><li>一個資訊元件最多一種實色填滿、一種文字色。</li></ul></article>
+      <article class="cell c-gray">
+        <h3>AA pairing</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Text on</th><th>Swatch</th><th style="text-align:right">Ratio</th></tr></thead>
+          <tbody>
+            <tr><td>Black</td><td><i class="chip" style="background:var(--tdf-yellow)"></i>Yellow</td><td class="num">14.3</td></tr>
+            <tr><td>Black</td><td><i class="chip" style="background:var(--tdf-pink)"></i>Pink</td><td class="num">15.4</td></tr>
+            <tr><td>Black</td><td><i class="chip" style="background:var(--tdf-cyan)"></i>Cyan</td><td class="num">8.9</td></tr>
+            <tr><td>Black</td><td><i class="chip" style="background:var(--tdf-green)"></i>Green</td><td class="num">5.6</td></tr>
+            <tr><td>Black</td><td><i class="chip" style="background:var(--tdf-orange)"></i>Orange</td><td class="num">5.2</td></tr>
+            <tr><td>White</td><td><i class="chip" style="background:var(--tdf-ink)"></i>Ink</td><td class="num">16.6</td></tr>
+            <tr><td>White</td><td><i class="chip" style="background:var(--tdf-blue)"></i>Blue</td><td class="num">8.2</td></tr>
+            <tr><td>White</td><td><i class="chip" style="background:var(--tdf-magenta)"></i>Magenta</td><td class="num">4.8</td></tr>
+            <tr><td>White</td><td><i class="chip" style="background:var(--tdf-purple)"></i>Purple</td><td class="num">4.7</td></tr>
+            <tr><td>White · display only</td><td><i class="chip" style="background:var(--tdf-orange)"></i>Orange</td><td class="num">4.0</td></tr>
+            <tr><td>White · display only</td><td><i class="chip" style="background:var(--tdf-green)"></i>Green</td><td class="num">3.7</td></tr>
+          </tbody>
+        </table></div>
+        <p class="caption" style="margin-top:var(--space-3)">Ink 不得當小字放在橘、綠、桃紅、紫紅、深藍上。</p>
+      </article>
+      <article class="cell c-pink"><h3>Derived exceptions</h3><ul class="tight"><li><code>--muted</code>：Ink 混 28% 白，≈7:1 on white，只給說明文字。</li><li><code>--border-soft</code>：黑 15%，只給表格內列分隔。</li><li>兩者都不能當填色；除此之外不新增色相、淡色或漸層。</li><li>印刷 CMYK、螢幕 HEX，值見 <code>design-tokens.json</code>。</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── TYPE ───────── -->
+  <section class="section" id="type">
+    <div class="section__head"><h2>Typography</h2><span>字體與階層</span></div>
+    <div class="grid type-grid">
+      <article class="cell type-display"><span class="eyebrow">English headings · Jersey 10 · --font-display</span><div class="sample pixel">TDF<br>2027</div><p class="body">All English headings, the year and short numbers use the pixel face, uppercase, leading .9, tracking .02em.</p></article>
+      <article class="cell type-display c-pink"><span class="eyebrow">繁中標題 · Cubic 11 Bold · --tdf-font-display-zh</span><div class="sample pixel-zh" style="font-size:44px">數位遊牧<br>相遇山海</div><p class="body">所有繁中標題使用 700 粗體像素字；行高 1.45、字距 .08em，兩行不得重疊。繁中內文仍用 Noto Sans TC。</p></article>
+    </div>
+    <div class="grid scale">
+      <div class="cell"><b>Display · --text-4xl</b><span class="pixel" style="font-size:74px;line-height:.8">120</span><code>64–164 px · leading .82–.9</code></div>
+      <div class="cell"><b>H1 · --text-3xl</b><span class="pixel" style="font-size:64px;line-height:.9">64</span><code>Section --text-2xl 44</code></div>
+      <div class="cell"><b>H2–H6 · --text-xl</b><span class="pixel" style="font-size:28px;line-height:1">28 px</span><code>Eyebrow 14–16 · .2em uppercase</code></div>
+      <div class="cell"><b>Body · --text-base</b><span style="font-size:18px;line-height:1.6">16–18 px · 1.55–1.7</span><code>Nothing visible below 14 px</code></div>
+    </div>
+    <div class="grid color-rules">
+      <article class="cell"><h3>Faces</h3><ul class="tight"><li>Jersey 10 400：英文標題、年份、短數字。</li><li>Space Grotesk 400/500/700：英文 UI 與內文。</li><li>Cubic 11 700：繁中標題。</li><li>Noto Sans TC 400/500/700：繁中 UI 與內文。</li><li>System monospace：code、kbd、對齊數字。</li></ul></article>
+      <article class="cell c-gray"><h3>Bilingual</h3><ul class="tight"><li>English-first 素材：中文第二行，≥ 英文內文 75%。</li><li>中文優先素材：層級對調。</li><li>兩種語言不搶同一個標題位。</li></ul></article>
+      <article class="cell c-magenta"><h3>Never</h3><ul class="tight"><li>內文、表格、QR、導引文字用像素字。</li><li>低解析「8-bit」濾鏡。像素感來自展示字體與整數格線。</li><li>任何可見文字小於 14 px。</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── LAYOUT ───────── -->
+  <section class="section" id="layout">
+    <div class="section__head"><h2>Layout Language</h2><span>蒙德里安格線＋像素模組</span></div>
+    <div class="grid layout-grid">
+      <div class="mondrian" aria-label="非對稱蒙德里安格線範例"><div></div><div></div><div></div><div></div><div></div></div>
+      <article class="cell layout-rules"><div><span class="eyebrow">Grid rules</span><p class="lead" style="margin-top:var(--space-4)">8 px module.<br>5 px structure.<br>3 px on mobile.</p></div><p class="body">非對稱但有清楚閱讀順序：一個主導色塊、一個輔助欄、幾個小點綴格。留白也是合法色塊，不為填滿而裝飾。用黑線與實色分隔；不用圓角、陰影、玻璃、漸層。</p><div class="measure" aria-label="八欄模數示意"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    </div>
+    <div class="grid layout-specs">
+      <div class="cell"><b>1440</b><span><code>--container-max</code><br>Gutters 32 / 24 / 20 px</span></div>
+      <div class="cell c-gray"><b>96 / 64 / 48</b><span>Section rhythm desktop / tablet / phone<br><code>--section-y-*</code></span></div>
+      <div class="cell"><b>0 px</b><span>Radius everywhere. Pills, avatars, badges are squares with a black rule.<br><code>--radius-*</code></span></div>
+      <div class="cell c-yellow"><b>Rings</b><span>No blur shadows. <code>--elev-ring</code> 1 px black, <code>--elev-raised</code> 3 px black.</span></div>
+    </div>
+  </section>
+
+  <!-- ───────── COMPONENTS ───────── -->
+  <section class="section" id="components">
+    <div class="section__head"><h2>Components</h2><span>元件範本 · live from tokens.css</span></div>
+    <div class="grid components">
+      <article class="cell">
+        <span class="eyebrow">Buttons</span>
+        <div class="actions" style="margin-top:var(--space-5)"><a class="btn btn--primary" href="#">Buy tickets</a><a class="btn btn--secondary" href="#">Explore program</a><a class="link" href="#">Apply as speaker</a></div>
+        <div class="states">
+          <figure><span class="btn btn--primary is-hover">Hover</span><figcaption>Fill and text invert together</figcaption></figure>
+          <figure><span class="btn btn--primary is-focus">Focus</span><figcaption><code>--focus-ring</code> 3 px gap + 3 px black</figcaption></figure>
+          <figure><span class="btn btn--primary is-active">Active</span><figcaption>Shifts 2 px down-right</figcaption></figure>
+        </div>
+        <p class="caption" style="margin-top:var(--space-4)">Primary：黃底黑字 3 px 黑框，min-height 48，Space Grotesk 700 16 px。一個視窗只有一顆 primary。Secondary：白底，hover 變淺灰。文字連結 2 px 底線，hover 換黃底線。</p>
+        <span class="eyebrow" style="display:block;margin-top:var(--space-8)">Tags &amp; status</span>
+        <div class="tags" style="margin-top:var(--space-4)"><span class="tag c-yellow">Community</span><span class="tag c-cyan">Workshop</span><span class="tag c-pink">Free</span><span class="tag c-magenta">Paid</span></div>
+        <div class="actions" style="margin-top:var(--space-4)"><span class="status">25 seats left</span><span class="status status--warn">Almost full</span><span class="status status--danger">Sold out</span></div>
+        <span class="eyebrow" style="display:block;margin-top:var(--space-8)">Event card</span>
+        <article class="event">
+          <div class="event__date"><b>04</b><span>May</span></div>
+          <div class="event__body"><div class="tags"><span class="tag c-cyan">Workshop</span><span class="tag c-pink">Free</span></div><h4>AI tools for solo founders</h4><div class="meta-row"><span>14:00 – 16:30</span><span>Taitung co-working hub</span></div><span class="status">25 seats left</span><div class="actions"><a class="btn btn--secondary" href="#">Join</a></div></div>
+        </article>
+      </article>
+      <article class="cell c-gray">
+        <span class="eyebrow">Form field</span>
+        <form class="form-grid" onsubmit="return false">
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" value="Mei-Ling Chen"></div>
+          <div class="field"><label for="f-place">Preferred place</label><select id="f-place"><option>Hualien · Apr 19 – 30</option><option selected>Taitung · May 1 – 28</option><option>Green Island · May 29 – 31</option></select></div>
+          <div class="field field--error"><label for="f-email">Email</label><input id="f-email" value="mei@example" aria-describedby="f-email-err"><span id="f-email-err" class="error">Enter a full email address, e.g. mei@example.com</span></div>
+        </form>
+        <p class="caption" style="margin-top:var(--space-4)">14 px 粗體標籤、46 px 輸入框 3 px 黑框；focus 顯示 <code>--focus-ring</code> 與黃色底線；錯誤用 <code>--danger</code> 文字＋邊框，不只靠顏色。</p>
+        <span class="eyebrow" style="display:block;margin-top:var(--space-8)">Table</span>
+        <div class="table-wrap" style="margin-top:var(--space-4)"><table>
+          <thead><tr><th>Pass</th><th>Covers</th><th style="text-align:right">NT$</th></tr></thead>
+          <tbody><tr><td>Hualien week</td><td>Apr 19 – 30</td><td class="num">3,200</td></tr><tr><td>Taitung month</td><td>May 1 – 28</td><td class="num">6,800</td></tr><tr><td>Full festival</td><td>43 days</td><td class="num">12,000</td></tr></tbody>
+        </table></div>
+        <p class="caption" style="margin-top:var(--space-3)">15–16 px；表頭黑字淺灰底；列以 <code>--border-soft</code> 分隔；對齊數字用 <code>--font-mono</code>。數字為範例。</p>
+      </article>
+    </div>
+    <div class="grid comp-rules">
+      <article class="cell"><h3>Nav bar</h3><ul class="tight"><li>白底、底線 5 px</li><li>左：短標；右：14 px 大寫連結</li><li>Active 連結黃底黑字</li></ul></article>
+      <article class="cell c-yellow"><h3>Place card</h3><ul class="tight"><li>三格等大、等字級、等位階</li><li>Jersey 10 28–34 px 地名</li><li>一格一色，色彩可在素材間輪替</li></ul></article>
+      <article class="cell"><h3>Badge / tag</h3><ul class="tight"><li>直角、14 px 大寫</li><li>一色填滿＋正確文字色</li><li>不用膠囊形</li></ul></article>
+      <article class="cell c-ink"><h3>Footer</h3><ul class="tight"><li>Ink 底白字、Jersey 10 標題</li><li>背書句固定</li><li>夥伴 logo 以黑線或留白分隔</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── MOTION ───────── -->
+  <section class="section" id="motion">
+    <div class="section__head"><h2>Motion &amp; States</h2><span>動態與互動狀態</span></div>
+    <div class="grid motion">
+      <div class="cell"><b>180 ms</b><span><code>--motion-fast</code> hover 與微狀態</span></div>
+      <div class="cell c-gray"><b>220 ms</b><span><code>--motion-base</code> 狀態切換；大色塊最多 400 ms</span></div>
+      <div class="cell"><b>Ease-out</b><span><code>--ease-standard</code> cubic-bezier(0,0,.2,1)。整格滑動、色塊翻轉、硬切。</span></div>
+      <div class="cell c-magenta"><b>Never</b><span>Bounce、漂浮、粒子、視差、長迴圈。</span></div>
+    </div>
+    <div class="grid color-rules">
+      <article class="cell"><h3>Color-block flip</h3><p class="body">Hover 只移動底色或邊框，文字不變淡。移到下方色塊試試。</p><div class="flip"><div>Hover me</div><div>Whole block</div></div></article>
+      <article class="cell c-gray"><h3>Feedback</h3><ul class="tight"><li>Hover 不是唯一回饋；每個可聚焦元素都顯示 <code>--focus-ring</code>。</li><li>文字 hover 不變灰。</li><li>Active 平移 2 px，不縮放。</li></ul></article>
+      <article class="cell c-yellow"><h3>Reduced motion</h3><ul class="tight"><li>尊重 <code>prefers-reduced-motion</code>。</li><li>移除移動、視差、自動播放。</li><li>本頁已依此設定關閉過場。</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── IMAGERY ───────── -->
+  <section class="section" id="imagery">
+    <div class="section__head"><h2>Imagery</h2><span>紀實攝影與像素角色</span></div>
+    <div class="grid photo-grid">
+      <figure class="cell photo"><img src="assets/photos/smiles.webp" alt="花蓮工作旅遊參與者自然互動" loading="lazy"><figcaption class="photo__cap">Real people · 真實社群</figcaption></figure>
+      <figure class="cell photo"><img src="assets/photos/networking.webp" alt="台東夜間社群聚會" loading="lazy"><figcaption class="photo__cap">Real context · 地方脈絡</figcaption></figure>
+      <figure class="cell photo sheep"><img src="assets/photos/cowork.webp" alt="四隻像素羊一起共同工作" loading="lazy"><figcaption class="photo__cap">Supporting character · 像素羊不是主標誌</figcaption></figure>
+    </div>
+    <div class="grid photo-rules">
+      <article class="cell c-green"><h3>Photography · do</h3><ul class="tight"><li>真實參與者、共同工作、地方文化、自然、夜間社群紀實。</li><li>自然光、真實膚色、看得見的環境、人與人互動。</li><li>裁切保留手、臉與地方元素；人像需授權。</li><li>照片、QR、文字維持高解析。</li></ul></article>
+      <article class="cell c-magenta"><h3>Photography · don't</h3><ul class="tight"><li>擺拍「海邊筆電」、商務庫存照、HDR、假人潮。</li><li>像素羊當標誌、放進正式文件或密集表格。</li><li>像素羊以外的內容套像素濾鏡。</li><li>Icon 要單色線性、方形端點、放在色格裡並附文字標籤。</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── VOICE ───────── -->
+  <section class="section" id="voice">
+    <div class="section__head"><h2>Voice</h2><span>語氣與文案</span></div>
+    <div class="grid voice">
+      <article class="cell voice__yes"><h3>Say it plainly</h3><ul><li>English-first，中文其次（≥ 75% 英文內文字級）</li><li>清楚說明日期、地點、費用、限制</li><li>Community、live together、workation、local connection</li><li>CTA 用動詞：Explore、Join、Apply、Buy tickets</li></ul></article>
+      <article class="cell voice__no"><h3>Avoid the hype</h3><ul><li>「全球頂尖」「史上最大」「world's biggest」</li><li>Networking opportunity、exclusive lifestyle</li><li>假造人潮與社群證明、廉價倒數、連續驚嘆號</li><li>Act I／II／III、第一站／壓軸的三地階層</li></ul></article>
+    </div>
+  </section>
+
+  <!-- ───────── APPLICATIONS ───────── -->
+  <section class="section" id="apply">
+    <div class="section__head"><h2>Applications</h2><span>輸出規格與出稿檢查</span></div>
+    <div class="grid applications">
+      <figure class="cell og-preview"><img src="design-system/assets/og-image.png" alt="TDF 2027 OG 主視覺" loading="lazy"></figure>
+      <div class="specs">
+        <div class="cell spec"><b>OG image</b><span>1200 × 630 px<br>≥ 40 px safe area</span></div>
+        <div class="cell spec c-pink"><b>IG portrait</b><span>1080 × 1350 px<br>headline in central safe area</span></div>
+        <div class="cell spec c-yellow"><b>Story / Reels</b><span>1080 × 1920 px<br>250 px UI safe zones top and bottom</span></div>
+        <div class="cell spec"><b>Deck</b><span>16:9 · one message per slide<br>titles ≥ 36 px, body ≥ 24 px @1920</span></div>
+        <div class="cell spec c-gray"><b>Print</b><span>CMYK · 300 dpi · 3 mm bleed · outlined text<br>QR keeps 4 modules quiet zone</span></div>
+        <div class="cell spec c-blue"><b>Co-branding</b><span>TDF 與夥伴標誌以黑線或留白分隔<br>TDF 主辦時面積 ≥ 最大夥伴標誌</span></div>
+      </div>
+    </div>
+    <div class="checklist" style="border-top:var(--tdf-line) solid var(--border)">
+      <div class="check">品牌名稱、日期、標語與三地拼寫正確</div><div class="check">三地平等，沒有 Act 階層或永久綁色</div>
+      <div class="check">一畫面一主色；沒有新色、漸層、圓角、陰影</div><div class="check">使用正式向量標誌、色票與字體</div>
+      <div class="check">所有文字 ≥ 14 px，fg/bg 組合在 AA 表內</div><div class="check">照片、字體與夥伴標誌授權齊全</div>
+      <div class="check">導引、表格、QR 不用像素字</div><div class="check">輸出檔與可編輯來源一併歸檔</div>
+    </div>
+  </section>
+
+  <!-- ───────── TOKENS ───────── -->
+  <section class="section" id="tokens">
+    <div class="section__head"><h2>Tokens &amp; Package</h2><span>OpenDesign · for designers and agents</span></div>
+    <div class="grid tokens">
+      <article class="cell">
+        <span class="eyebrow">Use it</span>
+        <p class="lead" style="margin-top:var(--space-4)">One stylesheet. Every color, size and rule on this page comes from it.</p>
+        <pre>&lt;link rel="stylesheet" href="https://cis.taiwandigitalfest.com/design-system/fonts/fonts.css"&gt;
+&lt;link rel="stylesheet" href="https://cis.taiwandigitalfest.com/design-system/tokens.css"&gt;
+
+.btn-primary { background: var(--accent); color: var(--accent-on); border: 3px solid var(--border); }
+.grid        { gap: var(--tdf-line); background: var(--border); }</pre>
+        <p class="body" style="margin-top:var(--space-5)">Agents：先讀 <a class="link" href="design-system/USAGE.md">USAGE.md</a>，再讀 <a class="link" href="design-system/DESIGN.md">DESIGN.md</a>，把 <code>tokens.css</code> 的 <code>:root</code> 貼進第一個 <code>&lt;style&gt;</code>，沿用 <a class="link" href="design-system/components.html">components.html</a> 的範本，最後對照 preview 頁檢查。Schema token 名稱不改，品牌值只透過 <code>--tdf-*</code> 擴充。</p>
+        <div class="previews"><a href="design-system/preview/colors.html">Colors</a><a href="design-system/preview/typography.html">Typography</a><a href="design-system/preview/spacing.html">Spacing</a><a href="design-system/preview/logo.html">Logo</a><a href="design-system/preview/components-buttons.html">Buttons</a><a href="design-system/preview/components-inputs.html">Inputs</a><a href="design-system/preview/app.html">App</a><a href="design-system/components.html">Components</a></div>
+      </article>
+      <div class="files">
+        <a class="cell file" href="design-system/tokens.css"><b>tokens.css</b><span>OpenDesign contract + <code>--tdf-*</code> extensions</span></a>
+        <a class="cell file" href="design-system/design-tokens.json"><b>design-tokens.json</b><span>W3C design tokens · HEX / CMYK</span></a>
+        <a class="cell file" href="design-system/tailwind-v4.css"><b>tailwind-v4.css</b><span><code>@theme</code> mapping for Tailwind 4</span></a>
+        <a class="cell file" href="design-system/DESIGN.md"><b>DESIGN.md</b><span>Rules, prohibitions, AA table, component specs</span></a>
+        <a class="cell file" href="design-system/fonts/fonts.css"><b>fonts</b><span>Jersey 10 · Cubic 11 (OFL) woff2</span></a>
+        <a class="cell file" href="design-system/manifest.json"><b>manifest.json</b><span><code>od-design-system-project/v1</code></span></a>
+        <a class="cell file" href="design-system/assets/favicon.svg" download><b>favicon.svg</b><span>Official mark · vector only</span></a>
+        <a class="cell file" href="design-system/assets/og-image.png" download><b>og-image.png</b><span>1200 × 630 master</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div><h2>TDF 2027 CIS · v1.0</h2><p>Canonical specification: <a class="link" style="color:inherit" href="spec.html">品牌色彩計畫.md</a> · Hualien · Taitung · Green Island · Apr 19 — May 31, 2027</p></div>
+    <div class="footer__side"><span class="endorse"><img src="design-system/assets/tdna-logo.png" alt="TDNA logo"> Hosted by TDNA</span><a class="btn btn--secondary" href="spec.html">Open full specification</a></div>
+  </footer>
+</main>
+</body>
+</html>

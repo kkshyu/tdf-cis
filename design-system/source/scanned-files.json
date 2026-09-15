@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "sourceRoot": "/Users/kkshyu/Repos/tdf/brand/design-system/tdf-2027",
+  "files": [
+    {
+      "path": "DESIGN.md",
+      "bytes": 12088,
+      "kind": "other"
+    },
+    {
+      "path": "USAGE.md",
+      "bytes": 2643,
+      "kind": "other"
+    },
+    {
+      "path": "components.html",
+      "bytes": 20849,
+      "kind": "other"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 1520,
+      "kind": "other"
+    },
+    {
+      "path": "tokens.css",
+      "bytes": 3713,
+      "kind": "style"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "bytes": 499,
+      "kind": "asset"
+    },
+    {
+      "path": "assets/og-image.png",
+      "bytes": 40057,
+      "kind": "asset"
+    },
+    {
+      "path": "assets/sheep-desk.webp",
+      "bytes": 48460,
+      "kind": "asset"
+    },
+    {
+      "path": "assets/tdna-logo.png",
+      "bytes": 12339,
+      "kind": "asset"
+    },
+    {
+      "path": "fonts/Cubic_11.woff2",
+      "bytes": 400228,
+      "kind": "font"
+    },
+    {
+      "path": "fonts/fonts.css",
+      "bytes": 530,
+      "kind": "style"
+    },
+    {
+      "path": "fonts/jersey10-latin.woff2",
+      "bytes": 5160,
+      "kind": "font"
+    },
+    {
+      "path": "preview/colors.html",
+      "bytes": 6919,
+      "kind": "other"
+    },
+    {
+      "path": "preview/logo.html",
+      "bytes": 7644,
+      "kind": "other"
+    },
+    {
+      "path": "preview/spacing.html",
+      "bytes": 6397,
+      "kind": "other"
+    },
+    {
+      "path": "preview/typography.html",
+      "bytes": 7083,
+      "kind": "other"
+    }
+  ]
+}

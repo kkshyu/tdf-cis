@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDF 2027 typography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <style>
+      body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: var(--text-base); line-height: var(--leading-body); }
+      main { max-width: var(--container-max); margin: 0 auto; padding: var(--space-12) var(--container-gutter-desktop); }
+      h1 { margin: 0 0 var(--space-6); font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); text-transform: uppercase; color: var(--fg-2); }
+      .specimens { display: grid; grid-template-columns: 1fr 1fr; gap: var(--tdf-line); background: var(--border); border: var(--tdf-line) solid var(--border); }
+      .specimen { background: var(--bg); padding: var(--space-6); min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-5); }
+      .specimen dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-4); font-size: var(--text-sm); border-top: 2px solid var(--border); padding-top: var(--space-3); }
+      .specimen dt { font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; } .specimen dd { margin: 0; color: var(--muted); }
+      .s-jersey { font-family: var(--font-display); font-size: clamp(56px, 7vw, 104px); line-height: 0.82; text-transform: uppercase; color: var(--fg-2); }
+      .s-grotesk { font-family: var(--font-body); font-size: var(--text-2xl); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--fg-2); }
+      .s-cubic { font-family: var(--tdf-font-display-zh); font-weight: 700; font-size: var(--text-2xl); line-height: var(--tdf-leading-display-zh); letter-spacing: var(--tdf-tracking-display-zh); color: var(--fg-2); }
+      .s-noto { font-family: "Noto Sans TC", sans-serif; font-size: var(--text-xl); font-weight: 500; line-height: 1.5; }
+      .scale { margin-top: var(--space-12); display: grid; grid-template-columns: 220px 1fr; gap: var(--tdf-line); background: var(--border); border: var(--tdf-line) solid var(--border); }
+      .scale > div { background: var(--bg); padding: var(--space-5) var(--space-6); display: flex; align-items: center; min-height: 88px; }
+      .scale .lvl { flex-direction: column; align-items: flex-start; justify-content: center; font-size: var(--text-sm); }
+      .scale .lvl b { letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); }
+      .scale .lvl span { color: var(--muted); }
+      .t-4xl { font-family: var(--font-display); font-size: var(--text-4xl); line-height: 0.85; text-transform: uppercase; color: var(--fg-2); }
+      .t-3xl { font-family: var(--font-display); font-size: var(--text-3xl); line-height: var(--leading-tight); text-transform: uppercase; color: var(--fg-2); }
+      .t-2xl { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; text-transform: uppercase; color: var(--fg-2); }
+      .t-xl { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.05; text-transform: uppercase; color: var(--fg-2); }
+      .t-zh { font-family: var(--tdf-font-display-zh); font-weight: 700; font-size: 40px; line-height: var(--tdf-leading-display-zh); letter-spacing: var(--tdf-tracking-display-zh); color: var(--fg-2); }
+      .t-lg { font-size: var(--text-lg); max-width: 60ch; }
+      .t-base { font-size: var(--text-base); max-width: 70ch; }
+      .t-eyebrow { font-size: var(--text-sm); font-weight: 700; letter-spacing: var(--tdf-tracking-eyebrow); text-transform: uppercase; color: var(--fg-2); }
+      .t-caption { font-size: var(--text-sm); color: var(--muted); }
+      @media (max-width: 760px) { .specimens, .scale { grid-template-columns: 1fr; } .t-4xl { font-size: 88px; } .t-3xl { font-size: 48px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Typography</h1>
+      <section class="specimens" aria-label="Typeface specimens">
+        <article class="specimen"><div class="s-jersey">Taiwan Digital Fest 2027</div><dl><dt>Face</dt><dd>Jersey 10 · 400 · --font-display</dd><dt>Use</dt><dd>All English headings, year, short numbers. Never body, tables, QR or wayfinding.</dd></dl></article>
+        <article class="specimen"><div class="s-grotesk">Where digital nomads meet nature &amp; innovation.</div><dl><dt>Face</dt><dd>Space Grotesk · 400 / 500 / 700 · --font-body</dd><dt>Use</dt><dd>English UI and body, eyebrows, buttons, labels.</dd></dl></article>
+        <article class="specimen"><div class="s-cubic">數位遊牧者，相遇於山海與創新</div><dl><dt>Face</dt><dd>Cubic 11 · 700 · --tdf-font-display-zh</dd><dt>Use</dt><dd>All 繁中 headings, line-height 1.45, tracking .08em; wrapped lines never overlap.</dd></dl></article>
+        <article class="specimen"><div class="s-noto">花蓮、台東、綠島平等並列，43 天共同生活。</div><dl><dt>Face</dt><dd>Noto Sans TC · 400 / 500 / 700</dd><dt>Use</dt><dd>繁中 UI and body. Never pixel type for long Chinese copy.</dd></dl></article>
+      </section>
+
+      <section class="scale" aria-label="Type scale">
+        <div class="lvl"><b>Display</b><span>--text-4xl 120 · lh .85</span></div><div><span class="t-4xl">2027</span></div>
+        <div class="lvl"><b>H1</b><span>--text-3xl 64 · lh .9</span></div><div><span class="t-3xl">Taiwan Digital Fest</span></div>
+        <div class="lvl"><b>Section</b><span>--text-2xl 44 · lh 1</span></div><div><span class="t-2xl">Program &amp; places</span></div>
+        <div class="lvl"><b>H2–H6</b><span>--text-xl 28 · lh 1.05</span></div><div><span class="t-xl">Hualien · Taitung · Green Island</span></div>
+        <div class="lvl"><b>繁中 heading</b><span>Cubic 11 · lh 1.45</span></div><div><span class="t-zh">台灣數位遊牧節</span></div>
+        <div class="lvl"><b>Lead</b><span>--text-lg 18 · lh 1.55</span></div><div><p class="t-lg">Join 43 days of living, working and building together across East Taiwan.</p></div>
+        <div class="lvl"><b>Body</b><span>--text-base 16 · lh 1.55</span></div><div><p class="t-base">English first for international material; the Chinese line follows at no less than 75% of the English body size. 三地平等並列，共用一個節慶身份。</p></div>
+        <div class="lvl"><b>Eyebrow</b><span>--text-sm 14 · tracking .2em</span></div><div><span class="t-eyebrow">East Taiwan · Three host areas</span></div>
+        <div class="lvl"><b>Caption</b><span>--text-sm 14 · minimum</span></div><div><span class="t-caption">Nothing visible goes below 14px — labels, buttons and hints included.</span></div>
+      </section>
+    </main>
+  </body>
+</html>
