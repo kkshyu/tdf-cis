@@ -94,6 +94,7 @@
     .grid { display:grid; gap:var(--tdf-line); background:var(--border); }
     .grid + .grid { border-top:var(--tdf-line) solid var(--border); }
     .cell { background:var(--bg); padding:var(--space-8); min-width:0; }
+    .grid > *, .hero > *, .hero__side > *, .places > *, .principles > *, .logo-rules > *, .specs > *, .files > * { min-width:0; }
     .cell h3 { font-size:var(--text-xl); margin-bottom:var(--space-3); }
     .cell ul { padding-left:var(--space-5); font-size:var(--text-base); line-height:1.7; }
     .cell ul.tight { font-size:var(--text-sm); line-height:1.6; }
@@ -271,8 +272,8 @@
       .page { border-inline:0; }
       .hero { grid-template-columns:1fr; }
       .hero__main { min-height:520px; padding:var(--space-8) var(--container-gutter-phone); }
-      .hero__side { grid-template-columns:1fr 1fr 1fr; grid-template-rows:1fr; }
-      .hero__cell { padding:var(--space-4) var(--space-2); } .hero__cell img { width:64px; height:64px; }
+      .hero__side { grid-template-columns:1fr; grid-template-rows:auto; }
+      .hero__cell { padding:var(--space-6) var(--space-4); min-height:160px; } .hero__cell img { width:80px; height:80px; }
       .hero__cell .year { font-size:56px; }
       .places { grid-template-columns:1fr; } .place { min-height:95px; padding:var(--space-5) var(--container-gutter-phone); }
       .core,.logo-grid,.lockups,.type-grid,.layout-grid,.components,.voice,.applications,.tokens,.photo-rules { grid-template-columns:1fr; }
