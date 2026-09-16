@@ -1,9 +1,9 @@
 {
   "schemaVersion": "od-design-system-project/v1",
   "id": "tdf-2027-taiwan-digital-fest",
-  "name": "TDF 2027 — Taiwan Digital Fest",
+  "name": "TDF — Taiwan Digital Fest",
   "category": "Brands",
-  "description": "Taiwan Digital Fest 2027 brand system (CIS 1.0): Mondrian black grid, pixel display type (Jersey 10 / Cubic 11), 12 fixed swatches, hard edges, no gradients or shadows. Hosted by TDNA; Hualien · Taitung · Green Island.",
+  "description": "Taiwan Digital Fest brand system (CIS 1.0): Mondrian black grid, pixel display type (Jersey 10 / Cubic 11), 12 fixed swatches, hard edges, no gradients or shadows. Hosted by TDNA; Hualien · Taitung · Green Island.",
   "source": {
     "type": "local",
     "path": "/Users/kkshyu/Repos/tdf/brand/design-system/tdf-2027",

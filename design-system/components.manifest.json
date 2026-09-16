@@ -6,7 +6,7 @@
     "tokensCss": "tokens.css"
   },
   "fixture": {
-    "title": "TDF 2027 - reference components",
+    "title": "TDF - reference components",
     "description": "Reference fixture for design-systems/tdf-2027: Mondrian black grid, pixel headings, 12 fixed swatches, hard edges, one dominant color per screen.",
     "styleBlockCount": 1,
     "selectorCount": 97,

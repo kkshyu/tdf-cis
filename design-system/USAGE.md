@@ -1,6 +1,6 @@
-# TDF 2027 Usage
+# TDF Usage
 
-Package guide for OpenDesign agents building Taiwan Digital Fest 2027 artifacts.
+Package guide for OpenDesign agents building Taiwan Digital Fest artifacts.
 
 ## Read Order
 

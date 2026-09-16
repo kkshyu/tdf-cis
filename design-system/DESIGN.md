@@ -1,5 +1,5 @@
 ---
-name: "TDF 2027 — Taiwan Digital Fest"
+name: "TDF — Taiwan Digital Fest"
 category: Brands
 surface: web
 colors:
@@ -18,7 +18,7 @@ colors:
   blue: "#004E9D"
 ---
 
-# TDF 2027 — Taiwan Digital Fest Design System
+# TDF — Taiwan Digital Fest Design System
 
 > Category: Themed & Unique
 > Surface: web, social, deck, print
@@ -27,9 +27,9 @@ colors:
 
 ## Brand architecture and voice
 
-- **TDNA** endorses; **Taiwan Digital Fest 2027 / TDF 2027** is the event brand every participant touches. The endorsement line is fixed: `HOSTED BY TAIWAN DIGITAL NOMAD ASSOCIATION · TDNA`, placed under the headline or in the footer at ≤25% of the headline height.
+- **TDNA** endorses; **Taiwan Digital Fest / TDF** is the event brand every participant touches; the edition year is not part of the identity. The endorsement line is fixed: `HOSTED BY TAIWAN DIGITAL NOMAD ASSOCIATION · TDNA`, placed under the headline or in the footer at ≤25% of the headline height.
 - Three places are **equal and parallel**: `HUALIEN · TAITUNG · GREEN ISLAND` / `花蓮 · 台東 · 綠島`. Never use Act I/II/III, 第一站/壓軸 or any ranking language; never bind one place permanently to one color.
-- Fixed tagline, never rewritten: `Where digital nomads meet nature & innovation.` / `數位遊牧者，相遇於山海與創新。` Dates: `Apr 19 — May 31, 2027` / `2027 年 4 月 19 日至 5 月 31 日` (43 days).
+- Fixed tagline, never rewritten: `Where digital nomads meet nature & innovation.` / `數位遊牧者，相遇於山海與創新。` Edition dates change every year; the 2027 edition runs `Apr 19 — May 31, 2027` / `2027 年 4 月 19 日至 5 月 31 日` (43 days).
 - Voice: open, direct, culturally grounded, lively but ordered. English first for international material, Chinese second (≥75% of English body size). Say dates, places, cost and limits plainly. Use `community`, `live together`, `workation`, `local connection`; avoid `networking opportunity`, `exclusive lifestyle`, "world's biggest", "全球頂尖", stacked exclamation marks. CTAs are verbs: `Explore`, `Join`, `Apply`, `Buy tickets`.
 
 ## Color
@@ -98,7 +98,7 @@ Twelve official swatches. Print uses CMYK, screen uses HEX. Do not add tints, ne
 
 - Official mark: `assets/favicon.svg`, an asymmetric pinwheel of black rules around yellow, cyan, magenta, blue and a white center — the smallest Mondrian/pixel module. Use the vector file only; never redraw, retrace or AI-regenerate it.
 - Clear space: ¼ of the mark width on every side. Minimum size: 16px digital, 24px preferred in UI, 8mm print; wordmark ≥32mm; below 32px show the mark alone.
-- Lockups: full wordmark `TAIWAN DIGITAL FEST` in Jersey 10 uppercase with `2027` at the same level or as its own color block; navigation short mark `TDF 2027` in Space Grotesk 700 with `TDF` optionally inside a yellow box with a black rule; endorsement `Hosted by TDNA` at ≤25% of headline height.
+- Lockups: full wordmark `TAIWAN DIGITAL FEST` in Jersey 10 uppercase with the edition year (e.g. `2027`), when shown, at the same level or as its own color block; navigation short mark `TDF` in Space Grotesk 700 (append the year only on edition pages, e.g. `TDF 2027`) with `TDF` optionally inside a yellow box with a black rule; endorsement `Hosted by TDNA` at ≤25% of headline height.
 - Backgrounds: full color on white, light gray or a clean solid brand color; on photos add a full white or black plate first; monochrome processes use pure black or pure white versions only.
 - Never stretch, rotate, skew, round, re-color, add gradients, shadows, outlines, glow, transparency or partner marks inside the mark.
 
