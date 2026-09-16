@@ -1,6 +1,6 @@
-# TDF 2027 CIS
+# TDF CIS
 
-Taiwan Digital Fest 2027 brand identity site — https://cis.taiwandigitalfest.com
+Taiwan Digital Fest brand identity site (evergreen; the year only marks the current edition) — https://cis.taiwandigitalfest.com
 
 - `index.html` — CIS handbook, built on the OpenDesign token contract.
 - `spec.html` / `spec/品牌色彩計畫.md` — canonical written specification.
